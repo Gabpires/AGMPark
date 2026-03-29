@@ -17,7 +17,7 @@ class UsuarioModel extends Model
         'telefone',
         'senha',
         'tipo_usuario',
-        'istatus',
+        'status',
         'data_cadastro',
         'ultimo_login'
     ];
@@ -27,10 +27,42 @@ class UsuarioModel extends Model
         return $this->insert($data);
     }
 
-    public function listar()
-    {
-        return $this->findAll();
+    public function listar($filtros = [])
+{
+    $builder = $this;
+
+    if (!empty($filtros['nome'])) {
+        $builder = $builder->like('primeiro_nome', $filtros['nome']);
     }
+
+    if (!empty($filtros['cpfCnpj'])) {
+        $builder = $builder->where('cpf_cnpj', $filtros['cpfCnpj']);
+    }
+
+    if (!empty($filtros['email'])) {
+        $builder = $builder->where('email', $filtros['email']);
+    }
+
+    if (!empty($filtros['dataNasc'])) {
+        $builder = $builder->where('data_nascimento', $filtros['dataNasc']);
+    }
+
+    if (!empty($filtros['telefone'])) {
+        $builder = $builder->where('telefone', $filtros['telefone']);
+    }
+
+    if (!empty($filtros['tipo'])) {
+        $builder = $builder->where('tipo_usuario', $filtros['tipo']);
+    }
+
+    if (!empty($filtros['status'])) {
+        $builder = $builder->where('status', $filtros['status']);
+    }
+
+    return $builder->findAll();
+}
+
+
 
     public function buscarPorId($id)
     {
@@ -46,4 +78,8 @@ class UsuarioModel extends Model
     {
         return $this->delete($id);
     }
+
+
+
+
 }

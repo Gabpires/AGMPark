@@ -9,8 +9,9 @@ $routes->get('/', 'Home::index');
 
 $routes->group('usuarios', function ($routes) {
     $routes->post('inserir', 'Usuarios::inserir');
-    $routes->get('/', 'Usuarios::listar');
+    $routes->get('listar', 'Usuarios::listar');
     $routes->get('(:num)', 'Usuarios::buscar/$1');
     $routes->put('atualizar/(:num)', 'Usuarios::atualizar/$1');
     $routes->delete('deletar/(:num)', 'Usuarios::deletar/$1');
 });
+

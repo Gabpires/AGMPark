@@ -25,10 +25,10 @@ class Database extends Config
      * @var array<string, mixed>
      */
     public array $default = [
-        'DSN'          => '',
+        'DSN'          => 'BD_teste_AGM_Park',
         'hostname'     => '127.0.0.1',
         'username'     => 'root',
-        'password'     => 'Gab859632@',
+        'password'     => 'Adr1an0!0409',
         'database'     => 'TesteAGMpark',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',

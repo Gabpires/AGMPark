@@ -1,0 +1,9 @@
+CRITICAL - 2026-03-27 01:23:28 --> Error: Call to undefined function App\Controllers\verificarParam()
+[Method: GET, Route: usuarios/listar]
+in APPPATH\Controllers\Usuarios.php on line 305.
+ 1 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Usuarios->listar()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+ 3 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

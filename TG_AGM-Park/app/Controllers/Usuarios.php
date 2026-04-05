@@ -147,7 +147,7 @@ class Usuarios extends BaseController
             } else {
 
                 $retornoNome = validarDados($resultado->nome, 'string', true);
-                $retornoCpfCnpj = validarCPF($resultado->cpfCnpj, 'string', true);
+                $retornoCpfCnpj = validarDocumento($resultado->cpfCnpj);
                 $retornoEmail = validarDados($resultado->email, 'email', true);
                 $retornoDataNasc = validarDados($resultado->dataNasc, 'date', true);
                 $retornoTelefone = validarDados($resultado->telefone, 'string', true);
@@ -307,7 +307,7 @@ class Usuarios extends BaseController
             }
 
             if ($cpfCnpj) {
-                $retorno = validarCPF($cpfCnpj, 'string');
+                $retorno = validarDocumento($cpfCnpj);
                 if ($retorno['codigoHelper'] != 0) {
                     $erros[] = ['campo' => 'CPF/CNPJ', 'msg' => $retorno['msg']];
                 }
@@ -426,7 +426,7 @@ class Usuarios extends BaseController
             }
 
             if (!empty($resultado->cpfCnpj)) {
-                $ret = validarCPF($resultado->cpfCnpj, 'string');
+                $ret = validarDocumento($resultado->cpfCnpj);
                 if ($ret['codigoHelper'] != 0) {
                     $erros[] = ['campo' => 'CPF/CNPJ', 'msg' => $ret['msg']];
                 }

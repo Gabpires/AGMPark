@@ -15,3 +15,10 @@ $routes->group('usuarios', function ($routes) {
     $routes->delete('deletar/(:num)', 'Usuarios::deletar/$1');
 });
 
+$routes->group('estacionamentos', function ($routes) {
+    $routes->post('inserir', 'Estacionamentos::inserir');
+    $routes->get('listar', 'Estacionamentos::listar');
+    $routes->get('(:num)', 'Estacionamentos::buscar/$1');
+    $routes->put('atualizar/(:num)', 'Estacionamentos::atualizar/$1');
+    $routes->delete('deletar/(:num)', 'Estacionamentos::deletar/$1');
+});

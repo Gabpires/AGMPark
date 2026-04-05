@@ -1,0 +1,64 @@
+ERROR - 2026-04-05 17:07:08 --> Table 'testeagmpark.funcionario' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `funcionario` (`primeiro_nome`, `cpf_cnpj`, `email`, `data_nascimento`, `telefone`, `senha`, `tipo_usuario`, `status`) VALUES (\'jailson\', \'489.617.910-28\', \'jailson.mendes330@gmail.com\', \'1974-03-20\', \'975173587\', \'$2y$10$lFSyIb0DtfFHhI0gXdCD3uBHq2RfhTSDPohesCyrGTPdocXmXyS8O\', \'PROPRIETARIO\', \'ATIVO\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `funcionario` (`primeiro_nome`, `cpf_cnpj`, `email`, `data_nascimento`, `telefone`, `senha`, `tipo_usuario`, `status`) VALUES (\'jailson\', \'489.617.910-28\', \'jailson.mendes330@gmail.com\', \'1974-03-20\', \'975173587\', \'$2y$10$lFSyIb0DtfFHhI0gXdCD3uBHq2RfhTSDPohesCyrGTPdocXmXyS8O\', \'PROPRIETARIO\', \'ATIVO\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `funcionario` (`primeiro_nome`, `cpf_cnpj`, `email`, `data_nascimento`, `telefone`, `senha`, `tipo_usuario`, `status`) VALUES (\'jailson\', \'489.617.910-28\', \'jailson.mendes330@gmail.com\', \'1974-03-20\', \'975173587\', \'$2y$10$lFSyIb0DtfFHhI0gXdCD3uBHq2RfhTSDPohesCyrGTPdocXmXyS8O\', \'PROPRIETARIO\', \'ATIVO\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `funcionario` (`primeiro_nome`, `cpf_cnpj`, `email`, `data_nascimento`, `telefone`, `senha`, `tipo_usuario`, `status`) VALUES (:primeiro_nome:, :cpf_cnpj:, :email:, :data_nascimento:, :telefone:, :senha:, :tipo_usuario:, :status:)', [...], false)
+ 5 SYSTEMPATH\Model.php(355): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(899): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(668): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Models\UsuarioModel.php(27): CodeIgniter\Model->insert([...])
+ 9 APPPATH\Controllers\Usuarios.php(243): App\Models\UsuarioModel->inserir([...])
+10 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Usuarios->inserir()
+11 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+12 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-05 18:32:05 --> ErrorException: Namespace declaration statement has to be the very first statement or after any declare call in the script
+[Method: POST, Route: estacionamentos/inserir]
+in APPPATH\Controllers\Estacionamentos.php on line 4.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-04-05 18:33:19 --> ErrorException: Namespace declaration statement has to be the very first statement or after any declare call in the script
+[Method: POST, Route: estacionamentos/inserir]
+in APPPATH\Controllers\Estacionamentos.php on line 4.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-04-05 20:57:38 --> ErrorException: Namespace declaration statement has to be the very first statement or after any declare call in the script
+[Method: POST, Route: estacionamentos/inserir]
+in APPPATH\Controllers\Estacionamentos.php on line 4.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2026-04-05 20:58:42 --> Error: Call to undefined function App\Controllers\verificarParam()
+[Method: POST, Route: estacionamentos/inserir]
+in APPPATH\Controllers\Estacionamentos.php on line 46.
+ 1 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Estacionamentos->inserir()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Estacionamentos))
+ 3 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-05 20:58:44 --> Error: Call to undefined function App\Controllers\verificarParam()
+[Method: POST, Route: estacionamentos/inserir]
+in APPPATH\Controllers\Estacionamentos.php on line 46.
+ 1 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Estacionamentos->inserir()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Estacionamentos))
+ 3 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-05 22:45:26 --> Duplicate entry '489.617.910-28' for key 'funcionario.cpf_cnpj'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `funcionario` (`primeiro_nome`, `cpf_cnpj`, `email`, `data_nascimento`, `telefone`, `senha`, `tipo_usuario`, `status`) VALUES (\'judas\', \'489.617.910-28\', \'judas.groselha330@gmail.com\', \'1994-03-20\', \'975173587\', \'$2y$10$hS5HMwRUPtmL2W7b9mf/H.IOjoGWwIqzGJWnK7jWpB.B32OPj1fwm\', \'PROPRIETARIO\', \'ATIVO\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `funcionario` (`primeiro_nome`, `cpf_cnpj`, `email`, `data_nascimento`, `telefone`, `senha`, `tipo_usuario`, `status`) VALUES (\'judas\', \'489.617.910-28\', \'judas.groselha330@gmail.com\', \'1994-03-20\', \'975173587\', \'$2y$10$hS5HMwRUPtmL2W7b9mf/H.IOjoGWwIqzGJWnK7jWpB.B32OPj1fwm\', \'PROPRIETARIO\', \'ATIVO\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `funcionario` (`primeiro_nome`, `cpf_cnpj`, `email`, `data_nascimento`, `telefone`, `senha`, `tipo_usuario`, `status`) VALUES (\'judas\', \'489.617.910-28\', \'judas.groselha330@gmail.com\', \'1994-03-20\', \'975173587\', \'$2y$10$hS5HMwRUPtmL2W7b9mf/H.IOjoGWwIqzGJWnK7jWpB.B32OPj1fwm\', \'PROPRIETARIO\', \'ATIVO\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `funcionario` (`primeiro_nome`, `cpf_cnpj`, `email`, `data_nascimento`, `telefone`, `senha`, `tipo_usuario`, `status`) VALUES (:primeiro_nome:, :cpf_cnpj:, :email:, :data_nascimento:, :telefone:, :senha:, :tipo_usuario:, :status:)', [...], false)
+ 5 SYSTEMPATH\Model.php(355): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(899): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(668): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Models\UsuarioModel.php(27): CodeIgniter\Model->insert([...])
+ 9 APPPATH\Controllers\Usuarios.php(243): App\Models\UsuarioModel->inserir([...])
+10 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Usuarios->inserir()
+11 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+12 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

@@ -175,35 +175,35 @@ if (!function_exists('validarDadosConsulta')) {
     }
 }
 
-// if (!function_exists('validarCPF')) {
-//     function validarCPF(string $cpf): array
-//     {
-//         $cpf = preg_replace('/[^0-9]/', '', $cpf);
+if (!function_exists('validarCPF')) {
+    function validarCPF(string $cpf): array
+    {
+        $cpf = preg_replace('/[^0-9]/', '', $cpf);
 
-//         if (strlen($cpf) !== 11) {
-//             return ['codigoHelper' => 15, 'msg' => 'CPF com menos de 11 dígitos.'];
-//         }
+        if (strlen($cpf) !== 11) {
+            return ['codigoHelper' => 15, 'msg' => 'CPF com menos de 11 dígitos.'];
+        }
 
-//         if (preg_match('/^(\d)\1{10}$/', $cpf)) {
-//             return ['codigoHelper' => 16, 'msg' => 'CPF com todos dígitos iguais.'];
-//         }
+        if (preg_match('/^(\d)\1{10}$/', $cpf)) {
+            return ['codigoHelper' => 16, 'msg' => 'CPF com todos dígitos iguais.'];
+        }
 
-//         for ($t = 9; $t < 11; $t++) {
-//             $soma = 0;
+        for ($t = 9; $t < 11; $t++) {
+            $soma = 0;
 
-//             for ($i = 0; $i < $t; $i++) {
-//                 $soma += $cpf[$i] * (($t + 1) - $i);
-//             }
+            for ($i = 0; $i < $t; $i++) {
+                $soma += $cpf[$i] * (($t + 1) - $i);
+            }
 
-//             $digito = ((10 * $soma) % 11) % 10;
+            $digito = ((10 * $soma) % 11) % 10;
 
-//             if ((int) $cpf[$t] !== $digito) {
-//                 return ['codigoHelper' => 17, 'msg' => 'CPF com dígitos verificadores incorretos.'];
-//             }
-//         }
+            if ((int) $cpf[$t] !== $digito) {
+                return ['codigoHelper' => 17, 'msg' => 'CPF com dígitos verificadores incorretos.'];
+            }
+        }
 
-//         return ['codigoHelper' => 0, 'msg' => 'CPF válido.'];
-//     }
+        return ['codigoHelper' => 0, 'msg' => 'CPF válido.'];
+    }
 
 
 //     if (!function_exists('validarCNPJ')) {
@@ -355,4 +355,5 @@ function validarCEPCompleto(string $cep): array
     }
 
     return ['codigoHelper' => 0, 'msg' => 'CEP válido.'];
+}
 }

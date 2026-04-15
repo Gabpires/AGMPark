@@ -1,0 +1,149 @@
+ERROR - 2026-04-11 20:09:30 --> Unknown column 'NomeUsuario' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `veiculos` (`modelo`, `placa`, `NomeUsuario`) VALUES (\'FIAT\', \'ABC2D25\', \'Paulo Oliveira\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `veiculos` (`modelo`, `placa`, `NomeUsuario`) VALUES (\'FIAT\', \'ABC2D25\', \'Paulo Oliveira\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `veiculos` (`modelo`, `placa`, `NomeUsuario`) VALUES (\'FIAT\', \'ABC2D25\', \'Paulo Oliveira\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `veiculos` (`modelo`, `placa`, `NomeUsuario`) VALUES (:modelo:, :placa:, :NomeUsuario:)', [...], false)
+ 5 SYSTEMPATH\Model.php(355): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(899): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(668): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Veiculos.php(88): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Veiculos->inserir()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Veiculos))
+11 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-11 22:52:56 --> Error: Class "App\Controllers\VagasModel" not found
+[Method: POST, Route: vagas/inserir]
+in APPPATH\Controllers\Vagas.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\vagas->inserir()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+ 3 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-11 22:59:06 --> Duplicate entry '5' for key 'vagas.id_veiculo'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `vagas` (`id_veiculo`, `id_estacionamento`, `status`) VALUES (\'5\', \'3\', \'OCUPADA\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `vagas` (`id_veiculo`, `id_estacionamento`, `status`) VALUES (\'5\', \'3\', \'OCUPADA\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `vagas` (`id_veiculo`, `id_estacionamento`, `status`) VALUES (\'5\', \'3\', \'OCUPADA\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `vagas` (`id_veiculo`, `id_estacionamento`, `status`) VALUES (:id_veiculo:, :id_estacionamento:, :status:)', [...], false)
+ 5 SYSTEMPATH\Model.php(355): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(899): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(668): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Vagas.php(134): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\vagas->inserir()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+11 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-11 23:06:40 --> Duplicate entry '3' for key 'vagas.id_veiculo'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('UPDATE `vagas` SET `id_veiculo` = 3, `id_estacionamento` = 3, `status` = \'LIVRE\'
+WHERE `vagas`.`id_vaga` IN (\'5\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `vagas` SET `id_veiculo` = 3, `id_estacionamento` = 3, `status` = \'LIVRE\'
+WHERE `vagas`.`id_vaga` IN (\'5\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `vagas` SET `id_veiculo` = 3, `id_estacionamento` = 3, `status` = \'LIVRE\'
+WHERE `vagas`.`id_vaga` IN (\'5\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `vagas` SET `id_veiculo` = :id_veiculo:, `id_estacionamento` = :id_estacionamento:, `status` = :status:
+WHERE `vagas`.`id_vaga` IN :vagas.id_vaga:', [...], false)
+ 5 SYSTEMPATH\Model.php(406): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(1074): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(709): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Vagas.php(377): CodeIgniter\Model->update('5', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\vagas->atualizar('5')
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+11 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-11 23:08:19 --> Duplicate entry '5' for key 'vagas.id_veiculo'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `vagas` (`id_veiculo`, `id_estacionamento`, `status`) VALUES (\'5\', \'3\', \'OCUPADA\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `vagas` (`id_veiculo`, `id_estacionamento`, `status`) VALUES (\'5\', \'3\', \'OCUPADA\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `vagas` (`id_veiculo`, `id_estacionamento`, `status`) VALUES (\'5\', \'3\', \'OCUPADA\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `vagas` (`id_veiculo`, `id_estacionamento`, `status`) VALUES (:id_veiculo:, :id_estacionamento:, :status:)', [...], false)
+ 5 SYSTEMPATH\Model.php(355): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(899): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(668): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Vagas.php(134): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\vagas->inserir()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+11 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-11 23:17:10 --> Duplicate entry '6' for key 'vagas.id_veiculo'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `vagas` (`id_veiculo`, `id_estacionamento`, `status`) VALUES (\'6\', \'3\', \'OCUPADA\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `vagas` (`id_veiculo`, `id_estacionamento`, `status`) VALUES (\'6\', \'3\', \'OCUPADA\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `vagas` (`id_veiculo`, `id_estacionamento`, `status`) VALUES (\'6\', \'3\', \'OCUPADA\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `vagas` (`id_veiculo`, `id_estacionamento`, `status`) VALUES (:id_veiculo:, :id_estacionamento:, :status:)', [...], false)
+ 5 SYSTEMPATH\Model.php(355): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(899): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(668): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Vagas.php(168): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\vagas->inserir()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+11 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-11 23:27:26 --> Duplicate entry '7' for key 'vagas.id_veiculo'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `vagas` (`id_veiculo`, `id_estacionamento`, `status`) VALUES (\'7\', \'3\', \'OCUPADA\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `vagas` (`id_veiculo`, `id_estacionamento`, `status`) VALUES (\'7\', \'3\', \'OCUPADA\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `vagas` (`id_veiculo`, `id_estacionamento`, `status`) VALUES (\'7\', \'3\', \'OCUPADA\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `vagas` (`id_veiculo`, `id_estacionamento`, `status`) VALUES (:id_veiculo:, :id_estacionamento:, :status:)', [...], false)
+ 5 SYSTEMPATH\Model.php(355): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(899): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(668): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Vagas.php(168): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\vagas->inserir()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+11 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-11 23:35:09 --> Duplicate entry '8' for key 'vagas.id_veiculo'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('UPDATE `vagas` SET `id_veiculo` = \'8\', `status` = \'OCUPADA\'
+WHERE `vagas`.`id_vaga` IN (\'1\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `vagas` SET `id_veiculo` = \'8\', `status` = \'OCUPADA\'
+WHERE `vagas`.`id_vaga` IN (\'1\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `vagas` SET `id_veiculo` = \'8\', `status` = \'OCUPADA\'
+WHERE `vagas`.`id_vaga` IN (\'1\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `vagas` SET `id_veiculo` = :id_veiculo:, `status` = :status:
+WHERE `vagas`.`id_vaga` IN :vagas.id_vaga:', [...], false)
+ 5 SYSTEMPATH\Model.php(406): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(1074): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(709): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Vagas.php(174): CodeIgniter\Model->update('1', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\vagas->inserir()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+11 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-11 23:37:09 --> Duplicate entry '9' for key 'vagas.id_veiculo'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('UPDATE `vagas` SET `id_veiculo` = \'9\', `status` = \'OCUPADA\'
+WHERE `vagas`.`id_vaga` IN (\'1\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `vagas` SET `id_veiculo` = \'9\', `status` = \'OCUPADA\'
+WHERE `vagas`.`id_vaga` IN (\'1\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `vagas` SET `id_veiculo` = \'9\', `status` = \'OCUPADA\'
+WHERE `vagas`.`id_vaga` IN (\'1\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `vagas` SET `id_veiculo` = :id_veiculo:, `status` = :status:
+WHERE `vagas`.`id_vaga` IN :vagas.id_vaga:', [...], false)
+ 5 SYSTEMPATH\Model.php(406): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(1074): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(709): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Vagas.php(174): CodeIgniter\Model->update('1', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\vagas->inserir()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+11 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

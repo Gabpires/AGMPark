@@ -35,3 +35,10 @@ $routes->group('vagas', function ($routes) {
     $routes->put('atualizar/(:num)', 'Vagas::atualizar/$1');
     $routes->delete('deletar/(:num)', 'Vagas::deletar/$1');
 });
+
+$routes->group('reservas', function ($routes) {
+    $routes->post('inserir', 'Reservas::inserir');
+    $routes->get('listar', 'Reservas::listar');
+    $routes->put('atualizar/(:num)', 'Reservas::atualizar/$1');
+    $routes->delete('deletar/(:num)', 'Reservas::deletar/$1');
+});

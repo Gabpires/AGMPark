@@ -11,6 +11,7 @@ class VeiculoModel extends Model
 
     protected $allowedFields = [
         'modelo',
+        'marca',
         'placa',
         'status'
     ];

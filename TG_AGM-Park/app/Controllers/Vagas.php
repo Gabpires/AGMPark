@@ -9,178 +9,188 @@ use Exception;
 
 class vagas extends BaseController
 {
-    public function inserir()
-    {
-        helper('helper');
+public function inserir()
+{
+    helper('helper');
 
-        $erros = [];
-        $sucesso = false;
+    $erros = [];
+    $sucesso = false;
 
-        try {
-            $resultado = $this->request->getJSON();
+    try {
 
-            // JSON inválido
-            if (!$resultado) {
-                return $this->response->setJSON([
-                    'sucesso' => false,
-                    'erros' => [[
-                        'codigo' => 400,
-                        'msg' => 'JSON inválido ou vazio'
-                    ]]
-                ]);
+        $resultado = $this->request->getJSON();
+
+        // =====================================
+        // VALIDA JSON
+        // =====================================
+        if (!$resultado) {
+            return $this->response->setJSON([
+                'sucesso' => false,
+                'erros' => [[
+                    'codigo' => 400,
+                    'msg' => 'JSON inválido ou vazio'
+                ]]
+            ]);
+        }
+
+        // =====================================
+        // CAMPOS ESPERADOS
+        // =====================================
+        $lista = [
+            'id_estacionamento' => '0',
+            'numero_vaga'       => '0'
+        ];
+
+        if (verificarParam($resultado, $lista) != 1) {
+            $erros[] = [
+                'codigo' => 99,
+                'msg' => 'Campos inexistentes'
+            ];
+        } else {
+
+            // =====================================
+            // VALIDAÇÕES
+            // =====================================
+            $retIdEstacionamento = validarDados($resultado->id_estacionamento, 'int', true);
+            $retNumeroVaga       = validarDados($resultado->numero_vaga, 'int', true);
+
+            $validacoes = [
+                ['ret' => $retIdEstacionamento, 'campo' => 'id_estacionamento'],
+                ['ret' => $retNumeroVaga,       'campo' => 'numero_vaga']
+            ];
+
+            foreach ($validacoes as $v) {
+
+                if ($v['ret']['codigoHelper'] != 0) {
+
+                    $erros[] = [
+                        'codigo' => $v['ret']['codigoHelper'],
+                        'campo'  => $v['campo'],
+                        'msg'    => $v['ret']['msg']
+                    ];
+                }
             }
 
-            // VALIDA CAMPOS
-            $retIdVeiculo = validarDados($resultado->id_veiculo ?? null, 'int', true);
-            $retIdEstacionamento = validarDados($resultado->id_estacionamento ?? null, 'int', true);
-
-            if ($retIdVeiculo['codigoHelper'] != 0) {
-                $erros[] = ['campo' => 'id_veiculo', 'msg' => $retIdVeiculo['msg']];
+            // numero_vaga > 0
+            if (($resultado->numero_vaga ?? 0) <= 0) {
+                $erros[] = [
+                    'codigo' => 31,
+                    'campo' => 'numero_vaga',
+                    'msg' => 'Número da vaga deve ser maior que zero'
+                ];
             }
 
-            if ($retIdEstacionamento['codigoHelper'] != 0) {
-                $erros[] = ['campo' => 'id_estacionamento', 'msg' => $retIdEstacionamento['msg']];
-            }
+            if (empty($erros)) {
 
-            if (!empty($erros)) {
-                return $this->response->setJSON([
-                    'sucesso' => false,
-                    'erros' => $erros
-                ]);
-            }
+                $model = new \App\Models\VagaModel();
+                $estacionamentoModel = new \App\Models\EstacionamentoModel();
 
-            // MODELS
-            $vagaModel = new VagaModel();
-            $veiculoModel = new VeiculoModel();
-            $estacionamentoModel = new EstacionamentoModel();
+                // =====================================
+                // VERIFICA ESTACIONAMENTO
+                // =====================================
+                $estacionamento = $estacionamentoModel
+                    ->find($resultado->id_estacionamento);
 
-            // VALIDA VEÍCULO
-            $veiculo = $veiculoModel->find($resultado->id_veiculo);
+                if (!$estacionamento) {
+                    return $this->response->setJSON([
+                        'sucesso' => false,
+                        'erros' => [[
+                            'codigo' => 404,
+                            'campo' => 'id_estacionamento',
+                            'msg' => 'Estacionamento não encontrado'
+                        ]]
+                    ]);
+                }
 
-            if (!$veiculo) {
-                return $this->response->setJSON([
-                    'sucesso' => false,
-                    'erros' => [[
-                        'codigo' => 404,
-                        'msg' => 'Veículo não encontrado'
-                    ]]
-                ]);
-            }
+                // status ativo
+                if ($estacionamento['status'] == 'INATIVO') {
+                    return $this->response->setJSON([
+                        'sucesso' => false,
+                        'erros' => [[
+                            'codigo' => 403,
+                            'campo' => 'id_estacionamento',
+                            'msg' => 'Estacionamento inativo'
+                        ]]
+                    ]);
+                }
 
-            if ($veiculo['status'] !== 'ATIVO') {
-                return $this->response->setJSON([
-                    'sucesso' => false,
-                    'erros' => [[
-                        'codigo' => 42,
-                        'msg' => 'Veículo está inativo'
-                    ]]
-                ]);
-            }
-
-            // VALIDA ESTACIONAMENTO
-            $estacionamento = $estacionamentoModel->find($resultado->id_estacionamento);
-
-            if (!$estacionamento) {
-                return $this->response->setJSON([
-                    'sucesso' => false,
-                    'erros' => [[
-                        'codigo' => 404,
-                        'msg' => 'Estacionamento não encontrado'
-                    ]]
-                ]);
-            }
-
-            if ($estacionamento['status'] !== 'ATIVO') {
-                return $this->response->setJSON([
-                    'sucesso' => false,
-                    'erros' => [[
-                        'codigo' => 43,
-                        'msg' => 'Estacionamento está inativo'
-                    ]]
-                ]);
-            }
-
-            // VEÍCULO JÁ OCUPADO
-            $ocupado = $vagaModel
-                ->where('id_veiculo', $resultado->id_veiculo)
-                ->where('status', 'OCUPADA')
-                ->first();
-
-            if ($ocupado) {
-                return $this->response->setJSON([
-                    'sucesso' => false,
-                    'erros' => [[
-                        'codigo' => 41,
-                        'msg' => 'Veículo já está ocupando uma vaga'
-                    ]]
-                ]);
-            }
-
-            // PROCURA VAGA LIVRE
-            $vagaLivre = $vagaModel
-                ->where('id_estacionamento', $resultado->id_estacionamento)
-                ->where('status', 'LIVRE')
-                ->first();
-
-            if ($vagaLivre) {
-
-                // REUTILIZA VAGA
-                $res = $vagaModel->update($vagaLivre['id_vaga'], [
-                    'id_veiculo' => $resultado->id_veiculo,
-                    'status' => 'OCUPADA'
-                ]);
-            } else {
-
-                // CONTA TOTAL DE VAGAS DO ESTACIONAMENTO
-                $total = $vagaModel
+                // =====================================
+                // LIMITE DE VAGAS
+                // =====================================
+                $total = $model
                     ->where('id_estacionamento', $resultado->id_estacionamento)
                     ->countAllResults();
 
-                // LIMITE ATINGIDO
                 if ($total >= $estacionamento['numero_vagas']) {
                     return $this->response->setJSON([
                         'sucesso' => false,
                         'erros' => [[
                             'codigo' => 45,
-                            'msg' => 'Limite de vagas atingido'
+                            'msg' => 'Limite máximo de vagas atingido'
                         ]]
                     ]);
                 }
 
-                // CRIA NOVA VAGA
-                $res = $vagaModel->insert([
-                    'id_veiculo' => $resultado->id_veiculo,
-                    'id_estacionamento' => $resultado->id_estacionamento,
-                    'status' => 'OCUPADA'
-                ]);
-            }
+                // =====================================
+                // DUPLICIDADE numero_vaga
+                // =====================================
+                $vagaExiste = $model
+                    ->where('id_estacionamento', $resultado->id_estacionamento)
+                    ->where('numero_vaga', $resultado->numero_vaga)
+                    ->first();
 
-            if ($res) {
-                $sucesso = true;
-            } else {
-                $erros[] = [
-                    'codigo' => 500,
-                    'msg' => 'Erro ao salvar vaga',
-                    'detalhes' => $vagaModel->errors()
+                if ($vagaExiste) {
+                    return $this->response->setJSON([
+                        'sucesso' => false,
+                        'erros' => [[
+                            'codigo' => 30,
+                            'campo' => 'numero_vaga',
+                            'msg' => 'Número de vaga já existe neste estacionamento'
+                        ]]
+                    ]);
+                }
+
+                // =====================================
+                // INSERT
+                // =====================================
+                $dados = [
+                    'id_estacionamento' => $resultado->id_estacionamento,
+                    'numero_vaga'       => $resultado->numero_vaga,
+                    'status'            => 'LIVRE'
                 ];
+
+                if ($model->insert($dados)) {
+
+                    $sucesso = true;
+
+                } else {
+
+                    $erros[] = [
+                        'codigo' => 500,
+                        'msg' => 'Erro ao inserir vaga',
+                        'detalhes' => $model->errors()
+                    ];
+                }
             }
-        } catch (\Exception $e) {
-            return $this->response->setJSON([
-                'sucesso' => false,
-                'erros' => [[
-                    'codigo' => 0,
-                    'msg' => $e->getMessage()
-                ]]
-            ]);
         }
 
+    } catch (Exception $e) {
+
         return $this->response->setJSON([
-            'sucesso' => $sucesso,
-            'msg' => $sucesso ? 'Vaga ocupada com sucesso' : null,
-            'erros' => $sucesso ? [] : $erros
+            'sucesso' => false,
+            'erros' => [[
+                'codigo' => 0,
+                'msg' => 'Erro: ' . $e->getMessage()
+            ]]
         ]);
     }
 
+    return $this->response->setJSON([
+        'sucesso' => $sucesso,
+        'msg' => $sucesso ? 'Vaga cadastrada com sucesso' : null,
+        'erros' => $sucesso ? [] : $erros
+    ]);
+}
 
 
     public function listar()
@@ -205,66 +215,71 @@ class vagas extends BaseController
     }
 
 
-    public function atualizar($id)
-    {
-        helper('helper');
+   public function atualizar($id)
+{
+    helper('helper');
 
-        $erros = [];
-        $sucesso = false;
+    $erros = [];
+    $sucesso = false;
 
-        try {
-            $resultado = $this->request->getJSON();
+    try {
 
-            // JSON inválido
-            if (!$resultado) {
-                return $this->response->setJSON([
-                    'sucesso' => false,
-                    'erros' => [[
-                        'codigo' => 400,
-                        'msg' => 'JSON inválido ou vazio'
-                    ]]
-                ]);
-            }
+        $resultado = $this->request->getJSON();
 
-            // VALIDA ID
-            $retId = validarDados($id, 'int', true);
-            if ($retId['codigoHelper'] != 0) {
-                return $this->response->setJSON([
-                    'sucesso' => false,
-                    'erros' => [[
-                        'codigo' => $retId['codigoHelper'],
-                        'campo' => 'id_vaga',
-                        'msg' => $retId['msg']
-                    ]]
-                ]);
-            }
+        // =====================================
+        // VALIDA JSON
+        // =====================================
+        if (!$resultado) {
+            return $this->response->setJSON([
+                'sucesso' => false,
+                'erros' => [[
+                    'codigo' => 400,
+                    'msg' => 'JSON inválido ou vazio'
+                ]]
+            ]);
+        }
 
-            // VALIDA CAMPOS
-            $retIdVeiculo = validarDados($resultado->id_veiculo ?? null, 'int', true);
-            $retIdEstacionamento = validarDados($resultado->id_estacionamento ?? null, 'int', true);
+        // =====================================
+        // VALIDA ID DA URL
+        // =====================================
+        $retId = validarDados($id, 'int', true);
 
-            if ($retIdVeiculo['codigoHelper'] != 0) {
-                $erros[] = ['campo' => 'id_veiculo', 'msg' => $retIdVeiculo['msg']];
-            }
+        if ($retId['codigoHelper'] != 0) {
+            return $this->response->setJSON([
+                'sucesso' => false,
+                'erros' => [[
+                    'codigo' => $retId['codigoHelper'],
+                    'campo' => 'id_vaga',
+                    'msg' => $retId['msg']
+                ]]
+            ]);
+        }
 
-            if ($retIdEstacionamento['codigoHelper'] != 0) {
-                $erros[] = ['campo' => 'id_estacionamento', 'msg' => $retIdEstacionamento['msg']];
-            }
+        // =====================================
+        // CAMPOS ESPERADOS
+        // =====================================
+        $lista = [
+            'id_estacionamento' => '0',
+            'numero_vaga'       => '0',
+            'status'            => '0'
+        ];
 
-            if (!empty($erros)) {
-                return $this->response->setJSON([
-                    'sucesso' => false,
-                    'erros' => $erros
-                ]);
-            }
+        if (verificarParam($resultado, $lista) != 1) {
 
-            // MODELS
-            $vagaModel = new VagaModel();
-            $veiculoModel = new VeiculoModel();
-            $estacionamentoModel = new EstacionamentoModel();
+            $erros[] = [
+                'codigo' => 99,
+                'msg' => 'Campos inexistentes'
+            ];
 
-            // 🔍 VAGA EXISTE?
-            $vaga = $vagaModel->find($id);
+        } else {
+
+            $model = new \App\Models\VagaModel();
+            $estacionamentoModel = new \App\Models\EstacionamentoModel();
+
+            // =====================================
+            // VERIFICA EXISTÊNCIA DA VAGA
+            // =====================================
+            $vaga = $model->find($id);
 
             if (!$vaga) {
                 return $this->response->setJSON([
@@ -276,121 +291,142 @@ class vagas extends BaseController
                 ]);
             }
 
-            // VALIDA VEÍCULO
-            $veiculo = $veiculoModel->find($resultado->id_veiculo);
+            // =====================================
+            // VALIDAÇÕES
+            // =====================================
+            $retIdEstacionamento = validarDados($resultado->id_estacionamento, 'int', true);
+            $retNumeroVaga       = validarDados($resultado->numero_vaga, 'int', true);
+            $retStatus           = validarDados($resultado->status, 'string', true);
 
-            if (!$veiculo) {
-                return $this->response->setJSON([
-                    'sucesso' => false,
-                    'erros' => [[
-                        'codigo' => 404,
-                        'msg' => 'Veículo não encontrado'
-                    ]]
-                ]);
-            }
+            $validacoes = [
+                ['ret' => $retIdEstacionamento, 'campo' => 'id_estacionamento'],
+                ['ret' => $retNumeroVaga,       'campo' => 'numero_vaga'],
+                ['ret' => $retStatus,           'campo' => 'status']
+            ];
 
-            if ($veiculo['status'] !== 'ATIVO') {
-                return $this->response->setJSON([
-                    'sucesso' => false,
-                    'erros' => [[
-                        'codigo' => 42,
-                        'msg' => 'Veículo está inativo'
-                    ]]
-                ]);
-            }
+            foreach ($validacoes as $v) {
 
-            // VALIDA ESTACIONAMENTO
-            $estacionamento = $estacionamentoModel->find($resultado->id_estacionamento);
+                if ($v['ret']['codigoHelper'] != 0) {
 
-            if (!$estacionamento) {
-                return $this->response->setJSON([
-                    'sucesso' => false,
-                    'erros' => [[
-                        'codigo' => 404,
-                        'msg' => 'Estacionamento não encontrado'
-                    ]]
-                ]);
-            }
-
-            if ($estacionamento['status'] !== 'ATIVO') {
-                return $this->response->setJSON([
-                    'sucesso' => false,
-                    'erros' => [[
-                        'codigo' => 43,
-                        'msg' => 'Estacionamento está inativo'
-                    ]]
-                ]);
-            }
-
-            // VEÍCULO JÁ OCUPA OUTRA VAGA
-            $ocupado = $vagaModel
-                ->where('id_veiculo', $resultado->id_veiculo)
-                ->where('status', 'OCUPADA')
-                ->where('id_vaga !=', $id)
-                ->first();
-
-            if ($ocupado) {
-                return $this->response->setJSON([
-                    'sucesso' => false,
-                    'erros' => [[
-                        'codigo' => 41,
-                        'msg' => 'Veículo já está ocupando outra vaga'
-                    ]]
-                ]);
-            }
-
-            // CONTROLE DE LIMITE (caso troque de estacionamento)
-            if ($vaga['id_estacionamento'] != $resultado->id_estacionamento) {
-
-                $total = $vagaModel
-                    ->where('id_estacionamento', $resultado->id_estacionamento)
-                    ->where('status', 'OCUPADA')
-                    ->countAllResults();
-
-                if ($total >= $estacionamento['numero_vagas']) {
-                    return $this->response->setJSON([
-                        'sucesso' => false,
-                        'erros' => [[
-                            'codigo' => 45,
-                            'msg' => 'Limite de vagas atingido'
-                        ]]
-                    ]);
+                    $erros[] = [
+                        'codigo' => $v['ret']['codigoHelper'],
+                        'campo'  => $v['campo'],
+                        'msg'    => $v['ret']['msg']
+                    ];
                 }
             }
 
-            // ATUALIZA VAGA
-            $res = $vagaModel->update($id, [
-                'id_veiculo' => $resultado->id_veiculo,
-                'id_estacionamento' => $resultado->id_estacionamento,
-                'status' => 'OCUPADA'
-            ]);
-
-            if ($res) {
-                $sucesso = true;
-            } else {
+            // número vaga > 0
+            if (($resultado->numero_vaga ?? 0) <= 0) {
                 $erros[] = [
-                    'codigo' => 500,
-                    'msg' => 'Erro ao atualizar vaga',
-                    'detalhes' => $vagaModel->errors()
+                    'codigo' => 31,
+                    'campo' => 'numero_vaga',
+                    'msg' => 'Número da vaga deve ser maior que zero'
                 ];
             }
-        } catch (\Exception $e) {
-            return $this->response->setJSON([
-                'sucesso' => false,
-                'erros' => [[
-                    'codigo' => 0,
-                    'msg' => $e->getMessage()
-                ]]
-            ]);
+
+            // valida status permitido
+            $statusPermitidos = ['LIVRE', 'OCUPADA', 'MANUTENCAO'];
+
+            if (!in_array(strtoupper($resultado->status), $statusPermitidos)) {
+                $erros[] = [
+                    'codigo' => 32,
+                    'campo' => 'status',
+                    'msg' => 'Status inválido'
+                ];
+            }
+
+            if (empty($erros)) {
+
+                // =====================================
+                // VERIFICA ESTACIONAMENTO
+                // =====================================
+                $estacionamento = $estacionamentoModel
+                    ->find($resultado->id_estacionamento);
+
+                if (!$estacionamento) {
+                    return $this->response->setJSON([
+                        'sucesso' => false,
+                        'erros' => [[
+                            'codigo' => 404,
+                            'campo' => 'id_estacionamento',
+                            'msg' => 'Estacionamento não encontrado'
+                        ]]
+                    ]);
+                }
+
+                if ($estacionamento['status'] == 'INATIVO') {
+                    return $this->response->setJSON([
+                        'sucesso' => false,
+                        'erros' => [[
+                            'codigo' => 403,
+                            'campo' => 'id_estacionamento',
+                            'msg' => 'Estacionamento inativo'
+                        ]]
+                    ]);
+                }
+
+                // =====================================
+                // DUPLICIDADE número vaga
+                // =====================================
+                $vagaExiste = $model
+                    ->where('id_estacionamento', $resultado->id_estacionamento)
+                    ->where('numero_vaga', $resultado->numero_vaga)
+                    ->where('id_vaga !=', $id)
+                    ->first();
+
+                if ($vagaExiste) {
+                    return $this->response->setJSON([
+                        'sucesso' => false,
+                        'erros' => [[
+                            'codigo' => 30,
+                            'campo' => 'numero_vaga',
+                            'msg' => 'Número da vaga já existe neste estacionamento'
+                        ]]
+                    ]);
+                }
+
+                // =====================================
+                // UPDATE
+                // =====================================
+                $dados = [
+                    'id_estacionamento' => $resultado->id_estacionamento,
+                    'numero_vaga'       => $resultado->numero_vaga,
+                    'status'            => strtoupper($resultado->status)
+                ];
+
+                if ($model->update($id, $dados)) {
+
+                    $sucesso = true;
+
+                } else {
+
+                    $erros[] = [
+                        'codigo' => 500,
+                        'msg' => 'Erro ao atualizar vaga',
+                        'detalhes' => $model->errors()
+                    ];
+                }
+            }
         }
 
+    } catch (Exception $e) {
+
         return $this->response->setJSON([
-            'sucesso' => $sucesso,
-            'msg' => $sucesso ? 'Vaga atualizada com sucesso' : null,
-            'erros' => $sucesso ? [] : $erros
+            'sucesso' => false,
+            'erros' => [[
+                'codigo' => 0,
+                'msg' => 'Erro: ' . $e->getMessage()
+            ]]
         ]);
     }
 
+    return $this->response->setJSON([
+        'sucesso' => $sucesso,
+        'msg' => $sucesso ? 'Vaga atualizada com sucesso' : null,
+        'erros' => $sucesso ? [] : $erros
+    ]);
+}
 
     public function deletar($id)
     {

@@ -13,9 +13,8 @@ class VagaModel extends Model
     protected $primaryKey = 'id_vaga';
 
     protected $allowedFields = [
-        'id_vaga',
-        'id_veiculo',
         'id_estacionamento',
+        'numero_vaga',
         'status'
     ];
 
@@ -33,12 +32,12 @@ class VagaModel extends Model
                 $builder = $builder->where('id_vaga', $filtros['id_vaga']);
             }
 
-            if (!empty($filtros['id_veiculo'])) {
-                $builder = $builder->where('id_veiculo', $filtros['id_veiculo']);
-            }
-
             if (!empty($filtros['id_estacionamento'])) {
                 $builder = $builder->where('id_estacionamento', $filtros['id_estacionamento']);
+            }
+
+            if (!empty($filtros['numero_vagas'])) {
+                $builder = $builder->where('numero_vagas', $filtros['numero_vagas']);
             }
 
             if (!empty($filtros['status'])) {

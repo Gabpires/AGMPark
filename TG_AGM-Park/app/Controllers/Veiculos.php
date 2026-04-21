@@ -15,9 +15,12 @@ public function inserir()
     $sucesso = false;
 
     try {
+
         $resultado = $this->request->getJSON();
 
-        // Valida JSON
+        // =====================================
+        // VALIDA JSON
+        // =====================================
         if (!$resultado) {
             return $this->response->setJSON([
                 'sucesso' => false,
@@ -28,65 +31,101 @@ public function inserir()
             ]);
         }
 
-        // Campos esperados
+        // =====================================
+        // CAMPOS ESPERADOS
+        // =====================================
         $lista = [
             'modelo' => '0',
-            'placa' => '0'
+            'marca'  => '0',
+            'placa'  => '0'
         ];
 
         if (verificarParam($resultado, $lista) != 1) {
+
             $erros[] = [
                 'codigo' => 99,
                 'msg' => 'Campos inexistentes'
             ];
+
         } else {
 
-            // Validações
+            // =====================================
+            // VALIDAÇÕES
+            // =====================================
             $retModelo = validarDados($resultado->modelo, 'string', true);
-            $retPlaca = validarDados($resultado->placa, 'string', true);
+            $retMarca  = validarDados($resultado->marca, 'string', true);
+            $retPlaca  = validarDados($resultado->placa, 'string', true);
 
+            // normaliza placa
+            $placa = strtoupper(trim($resultado->placa));
 
-            // Tratamento de erros
+            // valida tamanho da placa
+            if (strlen($placa) < 7 || strlen($placa) > 10) {
+                $retPlaca = [
+                    'codigoHelper' => 31,
+                    'msg' => 'Placa inválida'
+                ];
+            }
+
+            // =====================================
+            // TRATAMENTO DE ERROS
+            // =====================================
             $validacoes = [
                 ['ret' => $retModelo, 'campo' => 'Modelo'],
-                ['ret' => $retPlaca, 'campo' => 'Placa']
+                ['ret' => $retMarca,  'campo' => 'Marca'],
+                ['ret' => $retPlaca,  'campo' => 'Placa']
             ];
 
             foreach ($validacoes as $v) {
+
                 if ($v['ret']['codigoHelper'] != 0) {
+
                     $erros[] = [
                         'codigo' => $v['ret']['codigoHelper'],
-                        'campo' => $v['campo'],
-                        'msg' => $v['ret']['msg']
+                        'campo'  => $v['campo'],
+                        'msg'    => $v['ret']['msg']
                     ];
                 }
             }
 
+            // =====================================
+            // SEM ERROS
+            // =====================================
             if (empty($erros)) {
 
                 $model = new \App\Models\VeiculoModel();
 
-                //  Verifica duplicidade (placa)
-                if ($model->where('placa', strtoupper($resultado->placa))->first()) {
+                // verifica placa duplicada
+                $existe = $model
+                    ->where('placa', $placa)
+                    ->first();
+
+                if ($existe) {
+
                     return $this->response->setJSON([
                         'sucesso' => false,
                         'erros' => [[
                             'codigo' => 30,
-                            'campo' => 'placa',
+                            'campo' => 'Placa',
                             'msg' => 'Placa já cadastrada'
                         ]]
                     ]);
                 }
 
-
+                // =====================================
+                // INSERT
+                // =====================================
                 $dados = [
-                    'modelo' => $resultado->modelo,
-                    'placa' => strtoupper($resultado->placa)
+                    'modelo' => trim($resultado->modelo),
+                    'marca'  => trim($resultado->marca),
+                    'placa'  => $placa,
+                    'status' => 'ATIVO'
                 ];
 
                 if ($model->insert($dados)) {
                     $sucesso = true;
                 } else {
+
                     $erros[] = [
                         'codigo' => 500,
                         'msg' => 'Erro ao inserir no banco',
@@ -97,6 +136,7 @@ public function inserir()
         }
 
     } catch (Exception $e) {
+
         return $this->response->setJSON([
             'sucesso' => false,
             'erros' => [[
@@ -126,7 +166,7 @@ public function listar()
     ]);
 }
 
-public function atualizar($id)
+ public function atualizar($id)
 {
     helper('helper');
 
@@ -134,8 +174,12 @@ public function atualizar($id)
     $sucesso = false;
 
     try {
+
         $resultado = $this->request->getJSON();
 
+        // =====================================
+        // VALIDA JSON
+        // =====================================
         if (!$resultado) {
             return $this->response->setJSON([
                 'sucesso' => false,
@@ -146,8 +190,27 @@ public function atualizar($id)
             ]);
         }
 
-        $model = new VeiculoModel();
+        // =====================================
+        // VALIDA ID
+        // =====================================
+        $retId = validarDados($id, 'int', true);
 
+        if ($retId['codigoHelper'] != 0) {
+            return $this->response->setJSON([
+                'sucesso' => false,
+                'erros' => [[
+                    'codigo' => $retId['codigoHelper'],
+                    'campo' => 'id_veiculo',
+                    'msg' => $retId['msg']
+                ]]
+            ]);
+        }
+
+        $model = new \App\Models\VeiculoModel();
+
+        // =====================================
+        // VERIFICA EXISTÊNCIA
+        // =====================================
         $veiculo = $model->find($id);
 
         if (!$veiculo) {
@@ -160,21 +223,26 @@ public function atualizar($id)
             ]);
         }
 
-        // BLOQUEIO se INATIVO
-        if ($veiculo['status'] === 'INATIVO') {
+        // =====================================
+        // BLOQUEIA ALTERAÇÃO SE INATIVO
+        // =====================================
+        if ($veiculo['status'] == 'INATIVO') {
             return $this->response->setJSON([
                 'sucesso' => false,
                 'erros' => [[
                     'codigo' => 403,
-                    'msg' => 'Não é possível alterar um veículo inativo'
+                    'msg' => 'Veículo inativo não pode ser alterado'
                 ]]
             ]);
         }
 
-        // Campos esperados
+        // =====================================
+        // CAMPOS ESPERADOS
+        // =====================================
         $lista = [
             'modelo' => '0',
-            'placa' => '0'
+            'marca'  => '0',
+            'placa'  => '0'
         ];
 
         if (verificarParam($resultado, $lista) != 1) {
@@ -184,55 +252,66 @@ public function atualizar($id)
             ];
         } else {
 
-            // Validações
+            // =====================================
+            // VALIDAÇÕES
+            // =====================================
             $retModelo = validarDados($resultado->modelo, 'string', true);
-            $retPlaca = validarDados($resultado->placa, 'string', true);
+            $retMarca  = validarDados($resultado->marca, 'string', true);
+            $retPlaca  = validarDados($resultado->placa, 'string', true);
 
-            $placa = strtoupper($resultado->placa);
+            $placa = strtoupper(trim($resultado->placa));
 
-            // Validação placa
-            if (!preg_match('/^[A-Z]{3}[0-9][A-Z0-9][0-9]{2}$/', $placa) &&
-                !preg_match('/^[A-Z]{3}-?[0-9]{4}$/', $placa)) {
-
+            if (strlen($placa) < 7 || strlen($placa) > 10) {
                 $retPlaca = [
-                    'codigoHelper' => 40,
-                    'msg' => 'Formato de placa inválido'
+                    'codigoHelper' => 31,
+                    'msg' => 'Placa inválida'
                 ];
             }
 
-            // Verifica duplicidade (exceto o próprio ID)
-            $placaExistente = $model->where('placa', $placa)
-                                    ->where('id_veiculo !=', $id)
-                                    ->first();
-
-            if ($placaExistente) {
-                $retPlaca = [
-                    'codigoHelper' => 41,
-                    'msg' => 'Placa já cadastrada'
-                ];
-            }
-
-            // Tratamento de erros
             $validacoes = [
                 ['ret' => $retModelo, 'campo' => 'Modelo'],
-                ['ret' => $retPlaca, 'campo' => 'Placa']
+                ['ret' => $retMarca,  'campo' => 'Marca'],
+                ['ret' => $retPlaca,  'campo' => 'Placa']
             ];
 
             foreach ($validacoes as $v) {
                 if ($v['ret']['codigoHelper'] != 0) {
                     $erros[] = [
                         'codigo' => $v['ret']['codigoHelper'],
-                        'campo' => $v['campo'],
-                        'msg' => $v['ret']['msg']
+                        'campo'  => $v['campo'],
+                        'msg'    => $v['ret']['msg']
                     ];
                 }
             }
 
+            // =====================================
+            // VERIFICA DUPLICIDADE DE PLACA
+            // =====================================
+            if (empty($erros)) {
+
+                $placaExistente = $model
+                    ->where('placa', $placa)
+                    ->where('id_veiculo !=', $id)
+                    ->first();
+
+                if ($placaExistente) {
+                    $erros[] = [
+                        'codigo' => 30,
+                        'campo' => 'Placa',
+                        'msg' => 'Placa já cadastrada em outro veículo'
+                    ];
+                }
+            }
+
+            // =====================================
+            // UPDATE
+            // =====================================
             if (empty($erros)) {
 
                 $dados = [
-                    'modelo' => $resultado->modelo,
-                    'placa' => $placa
+                    'modelo' => trim($resultado->modelo),
+                    'marca'  => trim($resultado->marca),
+                    'placa'  => $placa
                 ];
 
                 if ($model->update($id, $dados)) {
@@ -240,7 +319,7 @@ public function atualizar($id)
                 } else {
                     $erros[] = [
                         'codigo' => 500,
-                        'msg' => 'Erro ao atualizar',
+                        'msg' => 'Erro ao atualizar veículo',
                         'detalhes' => $model->errors()
                     ];
                 }
@@ -248,11 +327,12 @@ public function atualizar($id)
         }
 
     } catch (Exception $e) {
+
         return $this->response->setJSON([
             'sucesso' => false,
             'erros' => [[
                 'codigo' => 0,
-                'msg' => $e->getMessage()
+                'msg' => 'Erro: ' . $e->getMessage()
             ]]
         ]);
     }

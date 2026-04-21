@@ -3,9 +3,7 @@ CREATE DATABASE TesteAGMpark;
 
 USE TesteAGMpark;
 
--- =========================
--- TABELA FUNCIONARIO
--- =========================
+
 CREATE TABLE funcionario (
     id_funcionario INT AUTO_INCREMENT PRIMARY KEY,
     primeiro_nome VARCHAR(100) NOT NULL,
@@ -19,10 +17,6 @@ CREATE TABLE funcionario (
     data_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
-
--- =========================
--- TABELA ESTACIONAMENTO
--- =========================
 CREATE TABLE estacionamento (
     id_estacionamento INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
@@ -38,71 +32,39 @@ CREATE TABLE estacionamento (
     data_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP,
     status ENUM('ATIVO', 'INATIVO') DEFAULT 'ATIVO'
 );
-select * from estacionamento
--- =========================
--- TABELA VEICULOS
--- =========================
 
 CREATE TABLE veiculos (
     id_veiculo INT AUTO_INCREMENT PRIMARY KEY,
     modelo VARCHAR(100) NOT NULL,
+    marca VARCHAR(100) NOT NULL,
     placa VARCHAR(10) NOT NULL UNIQUE,
     status ENUM('ATIVO', 'INATIVO') DEFAULT 'ATIVO'
 );
-select * from veiculos
--- =========================
--- TABELA VAGAS
--- =========================
+
+
+
 CREATE TABLE vagas (
-    id_vaga INT AUTO_INCREMENT PRIMARY KEY,
-    id_veiculo INT NOT NULL,
-    id_estacionamento INT NOT NULL,
-    status ENUM('LIVRE','OCUPADA') DEFAULT 'LIVRE',
-    FOREIGN KEY (id_veiculo) 
-        REFERENCES veiculos(id_veiculo),
-	FOREIGN KEY (id_estacionamento)
-        REFERENCES estacionamento(id_estacionamento)
+ id_vaga INT AUTO_INCREMENT PRIMARY KEY,
+ id_estacionamento INT NOT NULL,
+ numero_vaga INT NOT NULL,
+ status ENUM('LIVRE','OCUPADA','MANUTENCAO') DEFAULT 'LIVRE',
+ FOREIGN KEY (id_estacionamento)
+ REFERENCES estacionamento(id_estacionamento),
+ UNIQUE(id_estacionamento, numero_vaga)
 );
-ALTER TABLE vagas 
-MODIFY id_veiculo INT NULL;
 
-select * from vagas;
-select * from veiculos;
-select * from estacionamento
--- =========================
--- TABELA RESERVAS antiga
--- =========================
--- CREATE TABLE reservas (
-    -- id_reserva INT AUTO_INCREMENT PRIMARY KEY,
-    -- id_veiculo INT NOT NULL,
-    -- id_vaga INT NOT NULL,
-    -- data_reserva DATETIME NOT NULL,
-    -- data_expiracao DATETIME NOT NULL,
-    -- status ENUM('ATIVA','CANCELADA','EXPIRADA','CONCLUIDA') DEFAULT 'ATIVA',
-    -- valor DECIMAL(10,2) NOT NULL,
-    -- FOREIGN KEY (id_veiculo) 
-       -- REFERENCES veiculos(id_veiculo),
-    -- FOREIGN KEY (id_vaga) 
-        -- REFERENCES vagas(id_vaga)
--- );
 
--- Nova Tabela Reservas
 CREATE TABLE reservas (
     id_reserva INT AUTO_INCREMENT PRIMARY KEY,
-
     id_veiculo INT NOT NULL,
     id_estacionamento INT NOT NULL,
     id_vaga INT NULL,
-
     data_reserva DATETIME NOT NULL,
     data_expiracao DATETIME NOT NULL,
-
     data_checkin DATETIME NULL,
     data_checkout DATETIME NULL,
     data_cancelamento DATETIME NULL,
-
     valor DECIMAL(10,2) NOT NULL DEFAULT 0.00,
-
     status ENUM(
         'ATIVA',
         'CANCELADA',
@@ -113,17 +75,13 @@ CREATE TABLE reservas (
 
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-
     FOREIGN KEY (id_veiculo)
         REFERENCES veiculos(id_veiculo),
-
     FOREIGN KEY (id_estacionamento)
         REFERENCES estacionamento(id_estacionamento),
-
     FOREIGN KEY (id_vaga)
         REFERENCES vagas(id_vaga)
 );
-
 
 
 
@@ -134,15 +92,27 @@ CREATE TABLE reservas (
 CREATE TABLE estadias (
     id_estadia INT AUTO_INCREMENT PRIMARY KEY,
     id_veiculo INT NOT NULL,
+    id_estacionamento INT NOT NULL,
     id_vaga INT NOT NULL,
+    id_reserva INT NULL,
     data_entrada DATETIME NOT NULL,
     data_saida DATETIME NULL,
-    valor_total DECIMAL(10,2),
-    status ENUM('EM_ANDAMENTO','FINALIZADA') DEFAULT 'EM_ANDAMENTO',
-    FOREIGN KEY (id_veiculo) 
+    valor_total DECIMAL(10,2) DEFAULT 0.00,
+    status ENUM(
+        'EM_ANDAMENTO',
+        'FINALIZADA',
+        'CANCELADA'
+    ) DEFAULT 'EM_ANDAMENTO',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_veiculo)
         REFERENCES veiculos(id_veiculo),
-    FOREIGN KEY (id_vaga) 
-        REFERENCES vagas(id_vaga)
+    FOREIGN KEY (id_estacionamento)
+        REFERENCES estacionamento(id_estacionamento),
+    FOREIGN KEY (id_vaga)
+        REFERENCES vagas(id_vaga),
+    FOREIGN KEY (id_reserva)
+        REFERENCES reservas(id_reserva)
 );
 
 -- =========================

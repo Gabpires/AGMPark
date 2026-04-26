@@ -9,17 +9,18 @@ class ReservaModel extends Model
     protected $table = 'reservas';
     protected $primaryKey = 'id_reserva';
 
-    protected $allowedFields = [
-        'id_reserva',
-        'id_veiculo',
-        'id_estacionamento',
-        'data_reserva',
-        'data_expiracao',
-        'valor',
-        'status'
-    ];
+   protected $allowedFields = [
+    'id_veiculo',
+    'id_estacionamento',
+    'id_vaga',
+    'data_reserva',
+    'data_expiracao',
+    'data_cancelamento',
+    'valor',
+    'status'
+];
 
-
+    protected $returnType = 'array';
 
     public function inserir(array $data)
     {

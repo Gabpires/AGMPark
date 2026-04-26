@@ -42,3 +42,10 @@ $routes->group('reservas', function ($routes) {
     $routes->put('atualizar/(:num)', 'Reservas::atualizar/$1');
     $routes->delete('deletar/(:num)', 'Reservas::deletar/$1');
 });
+
+$routes->group('estadias', function ($routes) {
+    $routes->post('inserir', 'Estadias::inserir');
+    $routes->get('listar', 'Estadias::listar');
+    $routes->put('atualizar/(:num)', 'Estadias::atualizar/$1');
+    $routes->delete('deletar/(:num)', 'Estadias::deletar/$1');
+});

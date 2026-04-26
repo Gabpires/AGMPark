@@ -8,7 +8,7 @@ use Exception;
 
 class Reservas extends BaseController
 {
-    public function inserir()
+   public function inserir()
 {
     helper('helper');
 
@@ -16,12 +16,8 @@ class Reservas extends BaseController
     $sucesso = false;
 
     try {
-
         $resultado = $this->request->getJSON();
 
-        // =====================================================
-        // JSON
-        // =====================================================
         if (!$resultado) {
             return $this->response->setJSON([
                 'sucesso' => false,
@@ -32,28 +28,28 @@ class Reservas extends BaseController
             ]);
         }
 
-        // =====================================================
-        // VALIDA CAMPOS OBRIGATÓRIOS
-        // =====================================================
-        $retIdVeiculo        = validarDados($resultado->id_veiculo ?? null, 'int', true);
+        $retIdVeiculo = validarDados($resultado->id_veiculo ?? null, 'int', true);
         $retIdEstacionamento = validarDados($resultado->id_estacionamento ?? null, 'int', true);
-        $retDataReserva      = validarDados($resultado->data_reserva ?? null, 'date', true);
-        $retDataExpiracao    = validarDados($resultado->data_expiracao ?? null, 'date', true);
-        $retValor            = validarDados($resultado->valor ?? null, 'float', true);
+        $retIdVaga = validarDados($resultado->id_vaga ?? null, 'int', true);
+        $retDataReserva = validarDados($resultado->data_reserva ?? null, 'datetime', true);
+        $retDataExpiracao = validarDados($resultado->data_expiracao ?? null, 'datetime', true);
+        $retValor = validarDados($resultado->valor ?? null, 'float', false);
 
         $validacoes = [
-            ['ret' => $retIdVeiculo,        'campo' => 'id_veiculo'],
+            ['ret' => $retIdVeiculo, 'campo' => 'id_veiculo'],
             ['ret' => $retIdEstacionamento, 'campo' => 'id_estacionamento'],
-            ['ret' => $retDataReserva,      'campo' => 'data_reserva'],
-            ['ret' => $retDataExpiracao,    'campo' => 'data_expiracao'],
-            ['ret' => $retValor,            'campo' => 'valor']
+            ['ret' => $retIdVaga, 'campo' => 'id_vaga'],
+            ['ret' => $retDataReserva, 'campo' => 'data_reserva'],
+            ['ret' => $retDataExpiracao, 'campo' => 'data_expiracao'],
+            ['ret' => $retValor, 'campo' => 'valor']
         ];
 
         foreach ($validacoes as $v) {
             if ($v['ret']['codigoHelper'] != 0) {
                 $erros[] = [
+                    'codigo' => $v['ret']['codigoHelper'],
                     'campo' => $v['campo'],
-                    'msg'   => $v['ret']['msg']
+                    'msg' => $v['ret']['msg']
                 ];
             }
         }
@@ -65,17 +61,11 @@ class Reservas extends BaseController
             ]);
         }
 
-        // =====================================================
-        // MODELS
-        // =====================================================
-        $reservaModel        = new ReservaModel();
-        $veiculoModel        = new VeiculoModel();
-        $estacionamentoModel = new EstacionamentoModel();
-        $vagaModel           = new VagaModel();
+        $reservaModel = new \App\Models\ReservaModel();
+        $veiculoModel = new \App\Models\VeiculoModel();
+        $estacionamentoModel = new \App\Models\EstacionamentoModel();
+        $vagaModel = new \App\Models\VagaModel();
 
-        // =====================================================
-        // VEÍCULO EXISTE E ESTÁ ATIVO
-        // =====================================================
         $veiculo = $veiculoModel->find($resultado->id_veiculo);
 
         if (!$veiculo) {
@@ -83,6 +73,7 @@ class Reservas extends BaseController
                 'sucesso' => false,
                 'erros' => [[
                     'codigo' => 404,
+                    'campo' => 'id_veiculo',
                     'msg' => 'Veículo não encontrado'
                 ]]
             ]);
@@ -93,14 +84,12 @@ class Reservas extends BaseController
                 'sucesso' => false,
                 'erros' => [[
                     'codigo' => 42,
+                    'campo' => 'id_veiculo',
                     'msg' => 'Veículo inativo'
                 ]]
             ]);
         }
 
-        // =====================================================
-        // ESTACIONAMENTO EXISTE E ATIVO
-        // =====================================================
         $estacionamento = $estacionamentoModel->find($resultado->id_estacionamento);
 
         if (!$estacionamento) {
@@ -108,6 +97,7 @@ class Reservas extends BaseController
                 'sucesso' => false,
                 'erros' => [[
                     'codigo' => 404,
+                    'campo' => 'id_estacionamento',
                     'msg' => 'Estacionamento não encontrado'
                 ]]
             ]);
@@ -118,17 +108,50 @@ class Reservas extends BaseController
                 'sucesso' => false,
                 'erros' => [[
                     'codigo' => 43,
+                    'campo' => 'id_estacionamento',
                     'msg' => 'Estacionamento inativo'
                 ]]
             ]);
         }
 
-        // =====================================================
-        // VEÍCULO JÁ POSSUI RESERVA ATIVA?
-        // =====================================================
+        $vaga = $vagaModel->find($resultado->id_vaga);
+
+        if (!$vaga) {
+            return $this->response->setJSON([
+                'sucesso' => false,
+                'erros' => [[
+                    'codigo' => 404,
+                    'campo' => 'id_vaga',
+                    'msg' => 'Vaga não encontrada'
+                ]]
+            ]);
+        }
+
+        if ($vaga['id_estacionamento'] != $resultado->id_estacionamento) {
+            return $this->response->setJSON([
+                'sucesso' => false,
+                'erros' => [[
+                    'codigo' => 44,
+                    'campo' => 'id_vaga',
+                    'msg' => 'Esta vaga não pertence ao estacionamento informado'
+                ]]
+            ]);
+        }
+
+        if ($vaga['status'] !== 'LIVRE') {
+            return $this->response->setJSON([
+                'sucesso' => false,
+                'erros' => [[
+                    'codigo' => 45,
+                    'campo' => 'id_vaga',
+                    'msg' => 'Vaga não está disponível para reserva'
+                ]]
+            ]);
+        }
+
         $reservaAtiva = $reservaModel
             ->where('id_veiculo', $resultado->id_veiculo)
-            ->whereIn('status', ['ATIVA', 'EM_USO'])
+            ->whereIn('status', ['ATIVA'])
             ->first();
 
         if ($reservaAtiva) {
@@ -136,48 +159,28 @@ class Reservas extends BaseController
                 'sucesso' => false,
                 'erros' => [[
                     'codigo' => 50,
-                    'msg' => 'Veículo já possui reserva ativa'
+                    'campo' => 'id_veiculo',
+                    'msg' => 'Veículo já possui uma reserva ativa'
                 ]]
             ]);
         }
 
-        // =====================================================
-        // VERIFICA DISPONIBILIDADE DE VAGAS
-        // =====================================================
-        $ocupadas = $vagaModel
-            ->where('id_estacionamento', $resultado->id_estacionamento)
-            ->where('status', 'OCUPADA')
-            ->countAllResults();
-
-        if ($ocupadas >= $estacionamento['numero_vagas']) {
-            return $this->response->setJSON([
-                'sucesso' => false,
-                'erros' => [[
-                    'codigo' => 45,
-                    'msg' => 'Não há vagas disponíveis para reserva'
-                ]]
-            ]);
-        }
-
-        // =====================================================
-        // INSERE RESERVA
-        // =====================================================
         $dados = [
-            'id_veiculo'        => $resultado->id_veiculo,
+            'id_veiculo' => $resultado->id_veiculo,
             'id_estacionamento' => $resultado->id_estacionamento,
-            'id_vaga'           => null,
-            'data_reserva'      => $resultado->data_reserva,
-            'data_expiracao'    => $resultado->data_expiracao,
-            'data_checkin'      => null,
-            'data_checkout'     => null,
+            'id_vaga' => $resultado->id_vaga,
+            'data_reserva' => $resultado->data_reserva,
+            'data_expiracao' => $resultado->data_expiracao,
             'data_cancelamento' => null,
-            'valor'             => $resultado->valor,
-            'status'            => 'ATIVA'
+            'valor' => $resultado->valor,
+            'status' => 'ATIVA'
         ];
 
-        $res = $reservaModel->insert($dados);
+        if ($reservaModel->insert($dados)) {
+            $vagaModel->update($resultado->id_vaga, [
+                'status' => 'RESERVADA'
+            ]);
 
-        if ($res) {
             $sucesso = true;
         } else {
             $erros[] = [
@@ -188,12 +191,11 @@ class Reservas extends BaseController
         }
 
     } catch (Exception $e) {
-
         return $this->response->setJSON([
             'sucesso' => false,
             'erros' => [[
                 'codigo' => 0,
-                'msg' => $e->getMessage()
+                'msg' => 'Erro: ' . $e->getMessage()
             ]]
         ]);
     }
@@ -207,13 +209,12 @@ class Reservas extends BaseController
 
 
 
-     public function listar()
+   public function listar()
 {
     helper('helper');
 
     try {
-
-        $model = new ReservaModel();
+        $model = new \App\Models\ReservaModel();
 
         $dados = $model
             ->select('
@@ -223,12 +224,26 @@ class Reservas extends BaseController
                 reservas.id_vaga,
                 reservas.data_reserva,
                 reservas.data_expiracao,
-                reservas.data_checkin,
-                reservas.data_checkout,
                 reservas.data_cancelamento,
                 reservas.valor,
-                reservas.status
+                reservas.status,
+                reservas.created_at,
+                reservas.updated_at,
+
+                veiculos.modelo,
+                veiculos.marca,
+                veiculos.placa,
+
+                estacionamento.nome AS nome_estacionamento,
+                estacionamento.cidade,
+                estacionamento.estado,
+
+                vagas.numero_vaga,
+                vagas.status AS status_vaga
             ')
+            ->join('veiculos', 'veiculos.id_veiculo = reservas.id_veiculo')
+            ->join('estacionamento', 'estacionamento.id_estacionamento = reservas.id_estacionamento')
+            ->join('vagas', 'vagas.id_vaga = reservas.id_vaga', 'left')
             ->orderBy('reservas.id_reserva', 'DESC')
             ->findAll();
 
@@ -244,24 +259,23 @@ class Reservas extends BaseController
 
         return $this->response->setJSON([
             'sucesso' => true,
-            'total'   => count($dados),
-            'dados'   => $dados
+            'total' => count($dados),
+            'dados' => $dados
         ]);
 
     } catch (Exception $e) {
-
         return $this->response->setJSON([
             'sucesso' => false,
             'erros' => [[
                 'codigo' => 0,
-                'msg' => $e->getMessage()
+                'msg' => 'Erro: ' . $e->getMessage()
             ]]
         ]);
     }
 }
 
 
-    public function atualizar($id)
+public function atualizar($id)
 {
     helper('helper');
 
@@ -269,80 +283,40 @@ class Reservas extends BaseController
     $sucesso = false;
 
     try {
-
         $resultado = $this->request->getJSON();
-
-        // ==================================================
-        // ID DA URL
-        // ==================================================
-        $retId = validarDados($id, 'int', true);
-
-        if ($retId['codigoHelper'] != 0) {
-            return $this->response->setJSON([
-                'sucesso' => false,
-                'erros' => [[
-                    'campo' => 'id_reserva',
-                    'msg' => $retId['msg']
-                ]]
-            ]);
-        }
 
         if (!$resultado) {
             return $this->response->setJSON([
                 'sucesso' => false,
                 'erros' => [[
                     'codigo' => 400,
-                    'msg' => 'JSON inválido'
+                    'msg' => 'JSON inválido ou vazio'
                 ]]
             ]);
         }
 
-        $model = new ReservaModel();
-
-        // ==================================================
-        // EXISTE RESERVA?
-        // ==================================================
-        $reserva = $model->find($id);
-
-        if (!$reserva) {
-            return $this->response->setJSON([
-                'sucesso' => false,
-                'erros' => [[
-                    'codigo' => 404,
-                    'msg' => 'Reserva não encontrada'
-                ]]
-            ]);
-        }
-
-        // ==================================================
-        // NÃO ALTERA FINALIZADAS
-        // ==================================================
-        if (in_array($reserva['status'], ['CONCLUIDA', 'CANCELADA'])) {
-            return $this->response->setJSON([
-                'sucesso' => false,
-                'erros' => [[
-                    'codigo' => 51,
-                    'msg' => 'Reserva finalizada não pode ser alterada'
-                ]]
-            ]);
-        }
-
-        // ==================================================
-        // VALIDA CAMPOS
-        // ==================================================
-        $retDataReserva   = validarDados($resultado->data_reserva ?? null, 'date', true);
-        $retExpiracao     = validarDados($resultado->data_expiracao ?? null, 'date', true);
-        $retValor         = validarDados($resultado->valor ?? null, 'float', true);
+        $retId = validarDados($id, 'int', true);
+        $retIdVeiculo = validarDados($resultado->id_veiculo ?? null, 'int', true);
+        $retIdEstacionamento = validarDados($resultado->id_estacionamento ?? null, 'int', true);
+        $retIdVaga = validarDados($resultado->id_vaga ?? null, 'int', true);
+        $retDataReserva = validarDados($resultado->data_reserva ?? null, 'datetime', true);
+        $retDataExpiracao = validarDados($resultado->data_expiracao ?? null, 'datetime', true);
+        $retValor = validarDados($resultado->valor ?? null, 'float', false);
 
         $validacoes = [
+            ['ret' => $retId, 'campo' => 'id_reserva'],
+            ['ret' => $retIdVeiculo, 'campo' => 'id_veiculo'],
+            ['ret' => $retIdEstacionamento, 'campo' => 'id_estacionamento'],
+            ['ret' => $retIdVaga, 'campo' => 'id_vaga'],
             ['ret' => $retDataReserva, 'campo' => 'data_reserva'],
-            ['ret' => $retExpiracao, 'campo' => 'data_expiracao'],
+            ['ret' => $retDataExpiracao, 'campo' => 'data_expiracao'],
             ['ret' => $retValor, 'campo' => 'valor']
         ];
 
         foreach ($validacoes as $v) {
             if ($v['ret']['codigoHelper'] != 0) {
                 $erros[] = [
+                    'codigo' => $v['ret']['codigoHelper'],
                     'campo' => $v['campo'],
                     'msg' => $v['ret']['msg']
                 ];
@@ -356,32 +330,171 @@ class Reservas extends BaseController
             ]);
         }
 
-        // ==================================================
-        // UPDATE
-        // ==================================================
+        $reservaModel = new \App\Models\ReservaModel();
+        $veiculoModel = new \App\Models\VeiculoModel();
+        $estacionamentoModel = new \App\Models\EstacionamentoModel();
+        $vagaModel = new \App\Models\VagaModel();
+
+        $reserva = $reservaModel->find($id);
+
+        if (!$reserva) {
+            return $this->response->setJSON([
+                'sucesso' => false,
+                'erros' => [[
+                    'codigo' => 404,
+                    'campo' => 'id_reserva',
+                    'msg' => 'Reserva não encontrada'
+                ]]
+            ]);
+        }
+
+        if ($reserva['status'] !== 'ATIVA') {
+            return $this->response->setJSON([
+                'sucesso' => false,
+                'erros' => [[
+                    'codigo' => 51,
+                    'campo' => 'status',
+                    'msg' => 'Apenas reservas ATIVAS podem ser atualizadas'
+                ]]
+            ]);
+        }
+
+        $veiculo = $veiculoModel->find($resultado->id_veiculo);
+
+        if (!$veiculo) {
+            return $this->response->setJSON([
+                'sucesso' => false,
+                'erros' => [[
+                    'codigo' => 404,
+                    'campo' => 'id_veiculo',
+                    'msg' => 'Veículo não encontrado'
+                ]]
+            ]);
+        }
+
+        if ($veiculo['status'] !== 'ATIVO') {
+            return $this->response->setJSON([
+                'sucesso' => false,
+                'erros' => [[
+                    'codigo' => 42,
+                    'campo' => 'id_veiculo',
+                    'msg' => 'Veículo inativo'
+                ]]
+            ]);
+        }
+
+        $estacionamento = $estacionamentoModel->find($resultado->id_estacionamento);
+
+        if (!$estacionamento) {
+            return $this->response->setJSON([
+                'sucesso' => false,
+                'erros' => [[
+                    'codigo' => 404,
+                    'campo' => 'id_estacionamento',
+                    'msg' => 'Estacionamento não encontrado'
+                ]]
+            ]);
+        }
+
+        if ($estacionamento['status'] !== 'ATIVO') {
+            return $this->response->setJSON([
+                'sucesso' => false,
+                'erros' => [[
+                    'codigo' => 43,
+                    'campo' => 'id_estacionamento',
+                    'msg' => 'Estacionamento inativo'
+                ]]
+            ]);
+        }
+
+        $vaga = $vagaModel->find($resultado->id_vaga);
+
+        if (!$vaga) {
+            return $this->response->setJSON([
+                'sucesso' => false,
+                'erros' => [[
+                    'codigo' => 404,
+                    'campo' => 'id_vaga',
+                    'msg' => 'Vaga não encontrada'
+                ]]
+            ]);
+        }
+
+        if ($vaga['id_estacionamento'] != $resultado->id_estacionamento) {
+            return $this->response->setJSON([
+                'sucesso' => false,
+                'erros' => [[
+                    'codigo' => 44,
+                    'campo' => 'id_vaga',
+                    'msg' => 'Esta vaga não pertence ao estacionamento informado'
+                ]]
+            ]);
+        }
+
+        if ($vaga['status'] !== 'LIVRE' && $vaga['id_vaga'] != $reserva['id_vaga']) {
+            return $this->response->setJSON([
+                'sucesso' => false,
+                'erros' => [[
+                    'codigo' => 45,
+                    'campo' => 'id_vaga',
+                    'msg' => 'Vaga não está disponível para reserva'
+                ]]
+            ]);
+        }
+
+        $reservaAtiva = $reservaModel
+            ->where('id_veiculo', $resultado->id_veiculo)
+            ->where('status', 'ATIVA')
+            ->where('id_reserva !=', $id)
+            ->first();
+
+        if ($reservaAtiva) {
+            return $this->response->setJSON([
+                'sucesso' => false,
+                'erros' => [[
+                    'codigo' => 50,
+                    'campo' => 'id_veiculo',
+                    'msg' => 'Veículo já possui outra reserva ativa'
+                ]]
+            ]);
+        }
+
+        if ($reserva['id_vaga'] != $resultado->id_vaga) {
+            $vagaModel->update($reserva['id_vaga'], [
+                'status' => 'LIVRE'
+            ]);
+
+            $vagaModel->update($resultado->id_vaga, [
+                'status' => 'RESERVADA'
+            ]);
+        }
+
         $dados = [
-            'data_reserva'   => $resultado->data_reserva,
+            'id_veiculo' => $resultado->id_veiculo,
+            'id_estacionamento' => $resultado->id_estacionamento,
+            'id_vaga' => $resultado->id_vaga,
+            'data_reserva' => $resultado->data_reserva,
             'data_expiracao' => $resultado->data_expiracao,
-            'valor'          => $resultado->valor
+            'valor' => $resultado->valor,
+            'status' => 'ATIVA'
         ];
 
-        if ($model->update($id, $dados)) {
+        if ($reservaModel->update($id, $dados)) {
             $sucesso = true;
         } else {
             $erros[] = [
                 'codigo' => 500,
                 'msg' => 'Erro ao atualizar reserva',
-                'detalhes' => $model->errors()
+                'detalhes' => $reservaModel->errors()
             ];
         }
 
     } catch (Exception $e) {
-
         return $this->response->setJSON([
             'sucesso' => false,
             'erros' => [[
                 'codigo' => 0,
-                'msg' => $e->getMessage()
+                'msg' => 'Erro: ' . $e->getMessage()
             ]]
         ]);
     }
@@ -393,11 +506,7 @@ class Reservas extends BaseController
     ]);
 }
 
-
-
-
-
-   public function deletar($id)
+public function deletar($id)
 {
     helper('helper');
 
@@ -405,28 +514,25 @@ class Reservas extends BaseController
     $sucesso = false;
 
     try {
-
-        // ==========================================
-        // VALIDA ID
-        // ==========================================
+        // Valida ID
         $retId = validarDados($id, 'int', true);
 
         if ($retId['codigoHelper'] != 0) {
             return $this->response->setJSON([
                 'sucesso' => false,
                 'erros' => [[
+                    'codigo' => $retId['codigoHelper'],
                     'campo' => 'id_reserva',
-                    'msg'   => $retId['msg']
+                    'msg' => $retId['msg']
                 ]]
             ]);
         }
 
-        $model = new ReservaModel();
+        $reservaModel = new \App\Models\ReservaModel();
+        $vagaModel = new \App\Models\VagaModel();
 
-        // ==========================================
-        // VERIFICA EXISTÊNCIA
-        // ==========================================
-        $reserva = $model->find($id);
+        // Verifica se a reserva existe
+        $reserva = $reservaModel->find($id);
 
         if (!$reserva) {
             return $this->response->setJSON([
@@ -438,44 +544,57 @@ class Reservas extends BaseController
             ]);
         }
 
-        // ==========================================
-        // NÃO PERMITE APAGAR CONCLUÍDA
-        // ==========================================
+        // Não permite cancelar reserva já concluída
         if ($reserva['status'] === 'CONCLUIDA') {
             return $this->response->setJSON([
                 'sucesso' => false,
                 'erros' => [[
-                    'codigo' => 52,
-                    'msg' => 'Reserva concluída não pode ser removida'
+                    'codigo' => 51,
+                    'msg' => 'Reserva concluída não pode ser cancelada'
                 ]]
             ]);
         }
 
-        // ==========================================
-        // SOFT DELETE
-        // ==========================================
+        // Não permite cancelar novamente
+        if ($reserva['status'] === 'CANCELADA') {
+            return $this->response->setJSON([
+                'sucesso' => false,
+                'erros' => [[
+                    'codigo' => 52,
+                    'msg' => 'Reserva já está cancelada'
+                ]]
+            ]);
+        }
+
+        // Libera a vaga se a reserva tiver uma vaga vinculada
+        if (!empty($reserva['id_vaga'])) {
+            $vagaModel->update($reserva['id_vaga'], [
+                'status' => 'LIVRE'
+            ]);
+        }
+
+        // Soft delete da reserva
         $dados = [
             'status' => 'CANCELADA',
             'data_cancelamento' => date('Y-m-d H:i:s')
         ];
 
-        if ($model->update($id, $dados)) {
+        if ($reservaModel->update($id, $dados)) {
             $sucesso = true;
         } else {
             $erros[] = [
                 'codigo' => 500,
                 'msg' => 'Erro ao cancelar reserva',
-                'detalhes' => $model->errors()
+                'detalhes' => $reservaModel->errors()
             ];
         }
 
     } catch (Exception $e) {
-
         return $this->response->setJSON([
             'sucesso' => false,
             'erros' => [[
                 'codigo' => 0,
-                'msg' => $e->getMessage()
+                'msg' => 'Erro: ' . $e->getMessage()
             ]]
         ]);
     }
@@ -486,5 +605,8 @@ class Reservas extends BaseController
         'erros' => $sucesso ? [] : $erros
     ]);
 }
+
+  
+
 
 }

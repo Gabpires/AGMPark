@@ -1,0 +1,114 @@
+ERROR - 2026-04-25 21:22:52 --> Unknown column 'estadias.id_estacionamento' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT `estadias`.`id_estadia`, `estadias`.`data_entrada`, `estadias`.`data_saida`, `estadias`.`valor_total`, `estadias`.`status`, `veiculos`.`id_veiculo`, `veiculos`.`modelo`, `veiculos`.`placa`, `vagas`.`id_vaga`, `vagas`.`numero_vaga`, `estacionamento`.`id_estacionamento`, `estacionamento`.`nome` as `nome_estacionamento`
+FROM `estadias`
+JOIN `veiculos` ON `veiculos`.`id_veiculo` = `estadias`.`id_veiculo`
+JOIN `vagas` ON `vagas`.`id_vaga` = `estadias`.`id_vaga`
+JOIN `estacionamento` ON `estacionamento`.`id_estacionamento` = `estadias`.`id_estacionamento`
+ORDER BY `estadias`.`id_estadia` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `estadias`.`id_estadia`, `estadias`.`data_entrada`, `estadias`.`data_saida`, `estadias`.`valor_total`, `estadias`.`status`, `veiculos`.`id_veiculo`, `veiculos`.`modelo`, `veiculos`.`placa`, `vagas`.`id_vaga`, `vagas`.`numero_vaga`, `estacionamento`.`id_estacionamento`, `estacionamento`.`nome` as `nome_estacionamento`
+FROM `estadias`
+JOIN `veiculos` ON `veiculos`.`id_veiculo` = `estadias`.`id_veiculo`
+JOIN `vagas` ON `vagas`.`id_vaga` = `estadias`.`id_vaga`
+JOIN `estacionamento` ON `estacionamento`.`id_estacionamento` = `estadias`.`id_estacionamento`
+ORDER BY `estadias`.`id_estadia` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `estadias`.`id_estadia`, `estadias`.`data_entrada`, `estadias`.`data_saida`, `estadias`.`valor_total`, `estadias`.`status`, `veiculos`.`id_veiculo`, `veiculos`.`modelo`, `veiculos`.`placa`, `vagas`.`id_vaga`, `vagas`.`numero_vaga`, `estacionamento`.`id_estacionamento`, `estacionamento`.`nome` as `nome_estacionamento`
+FROM `estadias`
+JOIN `veiculos` ON `veiculos`.`id_veiculo` = `estadias`.`id_veiculo`
+JOIN `vagas` ON `vagas`.`id_vaga` = `estadias`.`id_vaga`
+JOIN `estacionamento` ON `estacionamento`.`id_estacionamento` = `estadias`.`id_estacionamento`
+ORDER BY `estadias`.`id_estadia` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `estadias`.`id_estadia`, `estadias`.`data_entrada`, `estadias`.`data_saida`, `estadias`.`valor_total`, `estadias`.`status`, `veiculos`.`id_veiculo`, `veiculos`.`modelo`, `veiculos`.`placa`, `vagas`.`id_vaga`, `vagas`.`numero_vaga`, `estacionamento`.`id_estacionamento`, `estacionamento`.`nome` as `nome_estacionamento`
+FROM `estadias`
+JOIN `veiculos` ON `veiculos`.`id_veiculo` = `estadias`.`id_veiculo`
+JOIN `vagas` ON `vagas`.`id_vaga` = `estadias`.`id_vaga`
+JOIN `estacionamento` ON `estacionamento`.`id_estacionamento` = `estadias`.`id_estacionamento`
+ORDER BY `estadias`.`id_estadia` DESC', [], false)
+ 5 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Estadias.php(203): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Estadias->listar()
+ 9 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Estadias))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 22:11:48 --> Duplicate entry 'cimap86398@ryzid.com' for key 'funcionario.email'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `funcionario` (`primeiro_nome`, `cpf_cnpj`, `email`, `data_nascimento`, `telefone`, `senha`, `tipo_usuario`, `status`) VALUES (\'Pablo\', \'149.391.860-59\', \'cimap86398@ryzid.com\', \'1995-07-08\', \'975173587\', \'$2y$10$xmJi6vepZtTNdG2esuoPUORcCNt8NPGcbl9ghoF7Gk36O8k2j7VAi\', \'PROPRIETARIO\', \'ATIVO\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `funcionario` (`primeiro_nome`, `cpf_cnpj`, `email`, `data_nascimento`, `telefone`, `senha`, `tipo_usuario`, `status`) VALUES (\'Pablo\', \'149.391.860-59\', \'cimap86398@ryzid.com\', \'1995-07-08\', \'975173587\', \'$2y$10$xmJi6vepZtTNdG2esuoPUORcCNt8NPGcbl9ghoF7Gk36O8k2j7VAi\', \'PROPRIETARIO\', \'ATIVO\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `funcionario` (`primeiro_nome`, `cpf_cnpj`, `email`, `data_nascimento`, `telefone`, `senha`, `tipo_usuario`, `status`) VALUES (\'Pablo\', \'149.391.860-59\', \'cimap86398@ryzid.com\', \'1995-07-08\', \'975173587\', \'$2y$10$xmJi6vepZtTNdG2esuoPUORcCNt8NPGcbl9ghoF7Gk36O8k2j7VAi\', \'PROPRIETARIO\', \'ATIVO\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `funcionario` (`primeiro_nome`, `cpf_cnpj`, `email`, `data_nascimento`, `telefone`, `senha`, `tipo_usuario`, `status`) VALUES (:primeiro_nome:, :cpf_cnpj:, :email:, :data_nascimento:, :telefone:, :senha:, :tipo_usuario:, :status:)', [...], false)
+ 5 SYSTEMPATH\Model.php(355): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(899): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(668): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Models\UsuarioModel.php(27): CodeIgniter\Model->insert([...])
+ 9 APPPATH\Controllers\Usuarios.php(243): App\Models\UsuarioModel->inserir([...])
+10 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Usuarios->inserir()
+11 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+12 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 22:24:23 --> Duplicate entry 'Estacionamento São Roque-Avenida Brasil -95' for key 'estacionamento.nome'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('INSERT INTO `estacionamento` (`nome`, `rua`, `bairro`, `cidade`, `estado`, `numero_estacionamento`, `cep`, `quantidade_tempo`, `valor_tempo`, `numero_vagas`, `status`) VALUES (\'Estacionamento São Roque\', \'Avenida Brasil \', \'Centro\', \'São Roque\', \'SP\', 95, \'64018-815\', 15, 5, 5, \'ATIVO\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `estacionamento` (`nome`, `rua`, `bairro`, `cidade`, `estado`, `numero_estacionamento`, `cep`, `quantidade_tempo`, `valor_tempo`, `numero_vagas`, `status`) VALUES (\'Estacionamento São Roque\', \'Avenida Brasil \', \'Centro\', \'São Roque\', \'SP\', 95, \'64018-815\', 15, 5, 5, \'ATIVO\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `estacionamento` (`nome`, `rua`, `bairro`, `cidade`, `estado`, `numero_estacionamento`, `cep`, `quantidade_tempo`, `valor_tempo`, `numero_vagas`, `status`) VALUES (\'Estacionamento São Roque\', \'Avenida Brasil \', \'Centro\', \'São Roque\', \'SP\', 95, \'64018-815\', 15, 5, 5, \'ATIVO\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `estacionamento` (`nome`, `rua`, `bairro`, `cidade`, `estado`, `numero_estacionamento`, `cep`, `quantidade_tempo`, `valor_tempo`, `numero_vagas`, `status`) VALUES (:nome:, :rua:, :bairro:, :cidade:, :estado:, :numero_estacionamento:, :cep:, :quantidade_tempo:, :valor_tempo:, :numero_vagas:, :status:)', [...], false)
+ 5 SYSTEMPATH\Model.php(355): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(899): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(668): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Estacionamentos.php(118): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Estacionamentos->inserir()
+10 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Estacionamentos))
+11 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 22:39:38 --> Unknown column 'reservas.data_checkin' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT `reservas`.`id_reserva`, `reservas`.`id_veiculo`, `reservas`.`id_estacionamento`, `reservas`.`id_vaga`, `reservas`.`data_reserva`, `reservas`.`data_expiracao`, `reservas`.`data_checkin`, `reservas`.`data_checkout`, `reservas`.`data_cancelamento`, `reservas`.`valor`, `reservas`.`status`
+FROM `reservas`
+ORDER BY `reservas`.`id_reserva` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `reservas`.`id_reserva`, `reservas`.`id_veiculo`, `reservas`.`id_estacionamento`, `reservas`.`id_vaga`, `reservas`.`data_reserva`, `reservas`.`data_expiracao`, `reservas`.`data_checkin`, `reservas`.`data_checkout`, `reservas`.`data_cancelamento`, `reservas`.`valor`, `reservas`.`status`
+FROM `reservas`
+ORDER BY `reservas`.`id_reserva` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `reservas`.`id_reserva`, `reservas`.`id_veiculo`, `reservas`.`id_estacionamento`, `reservas`.`id_vaga`, `reservas`.`data_reserva`, `reservas`.`data_expiracao`, `reservas`.`data_checkin`, `reservas`.`data_checkout`, `reservas`.`data_cancelamento`, `reservas`.`valor`, `reservas`.`status`
+FROM `reservas`
+ORDER BY `reservas`.`id_reserva` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `reservas`.`id_reserva`, `reservas`.`id_veiculo`, `reservas`.`id_estacionamento`, `reservas`.`id_vaga`, `reservas`.`data_reserva`, `reservas`.`data_expiracao`, `reservas`.`data_checkin`, `reservas`.`data_checkout`, `reservas`.`data_cancelamento`, `reservas`.`valor`, `reservas`.`status`
+FROM `reservas`
+ORDER BY `reservas`.`id_reserva` DESC', [], false)
+ 5 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Reservas.php(233): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Reservas->listar()
+ 9 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reservas))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-04-25 22:39:47 --> Unknown column 'reservas.data_checkin' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT `reservas`.`id_reserva`, `reservas`.`id_veiculo`, `reservas`.`id_estacionamento`, `reservas`.`id_vaga`, `reservas`.`data_reserva`, `reservas`.`data_expiracao`, `reservas`.`data_checkin`, `reservas`.`data_checkout`, `reservas`.`data_cancelamento`, `reservas`.`valor`, `reservas`.`status`
+FROM `reservas`
+ORDER BY `reservas`.`id_reserva` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `reservas`.`id_reserva`, `reservas`.`id_veiculo`, `reservas`.`id_estacionamento`, `reservas`.`id_vaga`, `reservas`.`data_reserva`, `reservas`.`data_expiracao`, `reservas`.`data_checkin`, `reservas`.`data_checkout`, `reservas`.`data_cancelamento`, `reservas`.`valor`, `reservas`.`status`
+FROM `reservas`
+ORDER BY `reservas`.`id_reserva` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `reservas`.`id_reserva`, `reservas`.`id_veiculo`, `reservas`.`id_estacionamento`, `reservas`.`id_vaga`, `reservas`.`data_reserva`, `reservas`.`data_expiracao`, `reservas`.`data_checkin`, `reservas`.`data_checkout`, `reservas`.`data_cancelamento`, `reservas`.`valor`, `reservas`.`status`
+FROM `reservas`
+ORDER BY `reservas`.`id_reserva` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `reservas`.`id_reserva`, `reservas`.`id_veiculo`, `reservas`.`id_estacionamento`, `reservas`.`id_vaga`, `reservas`.`data_reserva`, `reservas`.`data_expiracao`, `reservas`.`data_checkin`, `reservas`.`data_checkout`, `reservas`.`data_cancelamento`, `reservas`.`valor`, `reservas`.`status`
+FROM `reservas`
+ORDER BY `reservas`.`id_reserva` DESC', [], false)
+ 5 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Reservas.php(233): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Reservas->listar()
+ 9 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reservas))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

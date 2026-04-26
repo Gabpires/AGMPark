@@ -60,6 +60,20 @@ if (!function_exists('validarDados')) {
         }
         break;
 
+        //novo case adicionado para validar datetime
+        case 'datetime':
+    $d = DateTime::createFromFormat('Y-m-d H:i:s', (string) $valor);
+
+    if (!$d || $d->format('Y-m-d H:i:s') !== $valor) {
+        return [
+            'codigoHelper' => 9,
+            'msg' => 'Data e hora em formato inválido. Use YYYY-MM-DD HH:MM:SS.'
+        ];
+    }
+    break;
+
+
+
     case 'hora':
         if (!preg_match('/^(?:[01]\d|2[0-3]):[0-5]\d$/', (string) $valor)) {
             return ['codigoHelper' => 7, 'msg' => 'Hora em formato inválido.'];

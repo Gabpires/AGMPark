@@ -104,19 +104,21 @@ CREATE TABLE pagamentos (
         REFERENCES estadias(id_estadia)
 );
 
+ALTER TABLE pagamentos
+ADD COLUMN status ENUM('PAGO','CANCELADO') DEFAULT 'PAGO';
+
+
+
 CREATE TABLE funcionario_estacionamento (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_funcionario INT NOT NULL,
     id_estacionamento INT NOT NULL,
-
     FOREIGN KEY (id_funcionario)
         REFERENCES funcionario(id_funcionario)
         ON DELETE CASCADE,
-
     FOREIGN KEY (id_estacionamento)
         REFERENCES estacionamento(id_estacionamento)
         ON DELETE CASCADE,
-
     UNIQUE(id_funcionario, id_estacionamento)
 );
 
@@ -126,13 +128,14 @@ CREATE TABLE horarios_funcionamento (
     dia_semana ENUM('SEG','TER','QUA','QUI','SEX','SAB','DOM') NOT NULL,
     hora_abertura TIME NOT NULL,
     hora_fechamento TIME NOT NULL,
-
     FOREIGN KEY (id_estacionamento)
         REFERENCES estacionamento(id_estacionamento)
         ON DELETE CASCADE,
-
     UNIQUE(id_estacionamento, dia_semana)
 );
+
+ALTER TABLE horarios_funcionamento
+ADD COLUMN status ENUM('ATIVO','INATIVO') DEFAULT 'ATIVO';
 
 CREATE TABLE tarifas (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -145,6 +148,9 @@ CREATE TABLE tarifas (
         REFERENCES estacionamento(id_estacionamento)
         ON DELETE CASCADE
 );
+
+ALTER TABLE tarifas 
+ADD COLUMN status ENUM('ATIVO','INATIVO') DEFAULT 'ATIVO';
 
 CREATE INDEX idx_vagas_status ON vagas(status);
 CREATE INDEX idx_reservas_status ON reservas(status);

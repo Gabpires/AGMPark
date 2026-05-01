@@ -49,3 +49,31 @@ $routes->group('estadias', function ($routes) {
     $routes->put('atualizar/(:num)', 'Estadias::atualizar/$1');
     $routes->delete('deletar/(:num)', 'Estadias::deletar/$1');
 });
+
+$routes->group('pagamentos', function ($routes) {
+    $routes->post('inserir', 'Pagamentos::inserir');
+    $routes->get('listar', 'Pagamentos::listar');
+    $routes->put('atualizar/(:num)', 'Pagamentos::atualizar/$1');
+    $routes->delete('deletar/(:num)', 'Pagamentos::deletar/$1');
+});
+
+$routes->group('FuncionarioEstacionamento', function ($routes) {
+    $routes->post('inserir', 'FuncionarioEstacionamento::inserir');
+    $routes->get('listar', 'FuncionarioEstacionamento::listar');
+    $routes->put('atualizar/(:num)', 'FuncionarioEstacionamento::atualizar/$1');
+    $routes->delete('deletar/(:num)', 'FuncionarioEstacionamento::deletar/$1');
+});
+
+$routes->group('HorariosFuncionamento', function ($routes) {
+    $routes->post('inserir', 'HorariosFuncionamento::inserir');
+    $routes->get('listar', 'HorariosFuncionamento::listar');
+    $routes->put('atualizar/(:num)', 'HorariosFuncionamento::atualizar/$1');
+    $routes->delete('deletar/(:num)', 'HorariosFuncionamento::deletar/$1');
+});
+
+$routes->group('tarifas', function ($routes) {
+    $routes->post('inserir', 'Tarifas::inserir');
+    $routes->get('listar', 'Tarifas::listar');
+    $routes->put('atualizar/(:num)', 'Tarifas::atualizar/$1');
+    $routes->delete('deletar/(:num)', 'Tarifas::deletar/$1');
+});

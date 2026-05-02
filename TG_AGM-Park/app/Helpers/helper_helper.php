@@ -31,11 +31,11 @@ if (!function_exists('validarDados')) {
         }
 
         switch ($tipo) {
-            case 'int':
-                if (filter_var($valor, FILTER_VALIDATE_INT) === false) {
-                    return ['codigoHelper' => 4, 'msg' => 'Conteúdo não inteiro.'];
-                }
-                break;
+    case 'int':
+        if (filter_var($valor, FILTER_VALIDATE_INT) === false) {
+            return ['codigoHelper' => 4, 'msg' => 'Conteúdo não inteiro.'];
+        }
+        break;
 
             case 'float':
                 if (!is_numeric($valor)) {
@@ -49,16 +49,30 @@ if (!function_exists('validarDados')) {
                 }
                 break;
 
-            case 'date':
-                if (!preg_match('/^(\d{4})-(\d{2})-(\d{2})$/', (string) $valor)) {
-                    return ['codigoHelper' => 6, 'msg' => 'Data em formato inválido.'];
-                }
+    case 'date':
+        if (!preg_match('/^(\d{4})-(\d{2})-(\d{2})$/', (string) $valor)) {
+            return ['codigoHelper' => 6, 'msg' => 'Data em formato inválido.'];
+        }
 
-                $d = DateTime::createFromFormat('Y-m-d', (string) $valor);
-                if (!$d || $d->format('Y-m-d') !== $valor) {
-                    return ['codigoHelper' => 6, 'msg' => 'Data inválida.'];
-                }
-                break;
+        $d = DateTime::createFromFormat('Y-m-d', (string) $valor);
+        if (!$d || $d->format('Y-m-d') !== $valor) {
+            return ['codigoHelper' => 6, 'msg' => 'Data inválida.'];
+        }
+        break;
+
+        //novo case adicionado para validar datetime
+        case 'datetime':
+    $d = DateTime::createFromFormat('Y-m-d H:i:s', (string) $valor);
+
+    if (!$d || $d->format('Y-m-d H:i:s') !== $valor) {
+        return [
+            'codigoHelper' => 9,
+            'msg' => 'Data e hora em formato inválido. Use YYYY-MM-DD HH:MM:SS.'
+        ];
+    }
+    break;
+
+
 
             //novo case adicionado para validar datetime
             case 'datetime':
@@ -78,19 +92,63 @@ if (!function_exists('validarDados')) {
                 }
                 break;
 
-            case 'email':
-                if (!filter_var($valor, FILTER_VALIDATE_EMAIL)) {
-                    return ['codigoHelper' => 8, 'msg' => 'Email em formato inválido.'];
-                }
-                break;
-
-            default:
-                return ['codigoHelper' => 97, 'msg' => 'Tipo de dado não definido.'];
+    case 'email':
+        if (!filter_var($valor, FILTER_VALIDATE_EMAIL)) {
+            return ['codigoHelper' => 8, 'msg' => 'Email em formato inválido.'];
         }
+        break;
+
+    default:
+        return ['codigoHelper' => 97, 'msg' => 'Tipo de dado não definido.'];
+}
 
         return ['codigoHelper' => 0, 'msg' => 'Validação correta.'];
     }
 }
+
+//         switch ($tipo) {
+//             case 'int':
+//                 if (filter_var($valor, FILTER_VALIDATE_INT) === false) {
+//                     return ['codigoHelper' => 4, 'msg' => 'Conteúdo não inteiro.'];
+//                 }
+//                 break;
+
+//             case 'string':
+//                 if (!is_string($valor) || trim($valor) === '') {
+//                     return ['codigoHelper' => 5, 'msg' => 'Conteúdo não é um texto.'];
+//                 }
+//                 break;
+
+//             case 'date':
+//                 if (!preg_match('/^(\d{4})-(\d{2})-(\d{2})$/', (string) $valor)) {
+//                     return ['codigoHelper' => 6, 'msg' => 'Data em formato inválido.'];
+//                 }
+
+//                 $d = DateTime::createFromFormat('Y-m-d', (string) $valor);
+//                 if (!$d || $d->format('Y-m-d') !== $valor) {
+//                     return ['codigoHelper' => 6, 'msg' => 'Data inválida.'];
+//                 }
+//                 break;
+
+//             case 'hora':
+//                 if (!preg_match('/^(?:[01]\d|2[0-3]):[0-5]\d$/', (string) $valor)) {
+//                     return ['codigoHelper' => 7, 'msg' => 'Hora em formato inválido.'];
+//                 }
+//                 break;
+
+//             case 'email':
+//                 if (!filter_var($valor, FILTER_VALIDATE_EMAIL)) {
+//                     return ['codigoHelper' => 8, 'msg' => 'Email em formato inválido.'];
+//                 }
+//                 break;
+
+//             default:
+//                 return ['codigoHelper' => 97, 'msg' => 'Tipo de dado não definido.'];
+//         }
+
+//         return ['codigoHelper' => 0, 'msg' => 'Validação correta.'];
+//     }
+// }
 
 //         switch ($tipo) {
 //             case 'int':

@@ -28,7 +28,7 @@ class Database extends Config
         'DSN'          => 'BD_teste_AGM_Park',
         'hostname'     => '127.0.0.1',
         'username'     => 'root',
-        'password'     => 'Adr1an0!0409',
+        'password'     => 'Gab859632@',
         'database'     => 'TesteAGMpark',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',

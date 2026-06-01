@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\EstacionamentoModel;
+use App\Models\VagaModel;
 use Exception;
 
 class Estacionamentos extends BaseController
@@ -96,9 +97,19 @@ class Estacionamentos extends BaseController
                 }
 
                 // Se não houver erros
+                if (($resultado->numeroVagas ?? 0) <= 0) {
+                    $erros[] = [
+                        'codigo' => 31,
+                        'campo' => 'NumeroVagas',
+                        'msg' => 'Numero de vagas deve ser maior que zero'
+                    ];
+                }
+
                 if (empty($erros)) {
 
                     $model = new EstacionamentoModel();
+                    $vagaModel = new VagaModel();
+                    $db = \Config\Database::connect();
 
                     $dados = [
                         'nome' => $resultado->nome,
@@ -115,9 +126,36 @@ class Estacionamentos extends BaseController
                     ];
 
                     // INSERT padrão do CodeIgniter
-                    if ($model->insert($dados)) {
-                        $sucesso = true;
+                    $db->transBegin();
+
+                    $idEstacionamento = $model->insert($dados, true);
+
+                    if ($idEstacionamento) {
+                        $vagas = [];
+
+                        for ($numeroVaga = 1; $numeroVaga <= (int) $resultado->numeroVagas; $numeroVaga++) {
+                            $vagas[] = [
+                                'id_estacionamento' => $idEstacionamento,
+                                'numero_vaga' => $numeroVaga,
+                                'status' => 'LIVRE'
+                            ];
+                        }
+
+                        $vagasInseridas = empty($vagas) ? true : $vagaModel->insertBatch($vagas);
+
+                        if ($vagasInseridas === false) {
+                            $db->transRollback();
+                            $erros[] = [
+                                'codigo' => 500,
+                                'msg' => 'Erro ao gerar vagas do estacionamento',
+                                'detalhes' => $vagaModel->errors()
+                            ];
+                        } else {
+                            $db->transCommit();
+                            $sucesso = true;
+                        }
                     } else {
+                        $db->transRollback();
                         $erros[] = [
                             'codigo' => 500,
                             'msg' => 'Erro ao inserir no banco',
@@ -142,7 +180,11 @@ class Estacionamentos extends BaseController
         if ($sucesso) {
             return $this->response->setJSON([
                 'sucesso' => true,
-                'msg' => 'Estacionamento cadastrado com sucesso'
+                'msg' => 'Estacionamento cadastrado com sucesso',
+                'dados' => [
+                    'id_estacionamento' => (int) $idEstacionamento,
+                    'vagas_geradas' => (int) $resultado->numeroVagas
+                ]
             ]);
         }
 
@@ -165,7 +207,7 @@ class Estacionamentos extends BaseController
 
         // Parâmetros via GET (opcional)
         $id = $this->request->getGet('id_estacionamento');
-        $status = $this->request->getGet('status');
+        $status = $this->request->getGet('status') ?: 'ATIVO';
 
         $model = new EstacionamentoModel();
 
@@ -184,7 +226,7 @@ class Estacionamentos extends BaseController
             }
         }
 
-        if ($status) {
+        if ($status && strtoupper($status) !== 'TODOS') {
             $model->where('status', strtoupper($status));
         }
 

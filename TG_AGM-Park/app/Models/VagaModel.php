@@ -37,8 +37,8 @@ class VagaModel extends Model
                 $builder = $builder->where('id_estacionamento', $filtros['id_estacionamento']);
             }
 
-            if (!empty($filtros['numero_vagas'])) {
-                $builder = $builder->where('numero_vagas', $filtros['numero_vagas']);
+            if (!empty($filtros['numero_vaga'])) {
+                $builder = $builder->where('numero_vaga', $filtros['numero_vaga']);
             }
 
             if (!empty($filtros['status'])) {
@@ -68,7 +68,7 @@ class VagaModel extends Model
                 return false;
             }
 
-            return $this->update($id, ['status' => $status]);
+            return $this->update($id, ['status_fisico' => $status]);
         }
 
 

@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Models\FuncionarioEstacionamentoModel;
-use App\Models\UsuarioModelModel;
 use App\Models\EstacionamentoModel;
 
 use Exception;
@@ -158,14 +157,26 @@ class FuncionarioEstacionamento extends BaseController
 }
 
 
-    public function listar()
+public function listar()
 {
     helper('helper');
+    helper('jwt');
 
     try {
+        $idEstacionamento = $this->request->getGet('id_estacionamento');
+        $idFuncionario = $this->request->getGet('id_funcionario');
+        $email = $this->request->getGet('email');
+        $statusEstacionamento = $this->request->getGet('status_estacionamento') ?: 'ATIVO';
+        $payload = get_jwt_payload();
+        $tipoUsuario = $payload['tipo_usuario'] ?? null;
+
+        if ($tipoUsuario === 'FUNCIONARIO') {
+            $idFuncionario = $payload['id'] ?? null;
+        }
+
         $model = new \App\Models\FuncionarioEstacionamentoModel();
 
-        $dados = $model
+        $query = $model
             ->select('
                 funcionario_estacionamento.id,
                 funcionario_estacionamento.id_funcionario,
@@ -179,15 +190,76 @@ class FuncionarioEstacionamento extends BaseController
 
                 estacionamento.nome AS nome_estacionamento,
                 estacionamento.rua,
+                estacionamento.numero_estacionamento,
                 estacionamento.bairro,
                 estacionamento.cidade,
                 estacionamento.estado,
+                estacionamento.cep,
+                estacionamento.quantidade_tempo,
+                estacionamento.valor_tempo,
+                estacionamento.numero_vagas,
                 estacionamento.status AS status_estacionamento
             ')
             ->join('funcionario', 'funcionario.id_funcionario = funcionario_estacionamento.id_funcionario')
             ->join('estacionamento', 'estacionamento.id_estacionamento = funcionario_estacionamento.id_estacionamento')
-            ->orderBy('funcionario_estacionamento.id', 'DESC')
-            ->findAll();
+            ->orderBy('funcionario_estacionamento.id', 'DESC');
+
+        if ($idEstacionamento) {
+            $retIdEstacionamento = validarDados($idEstacionamento, 'int', true);
+
+            if ($retIdEstacionamento['codigoHelper'] != 0) {
+                return $this->response->setJSON([
+                    'sucesso' => false,
+                    'erros' => [[
+                        'codigo' => $retIdEstacionamento['codigoHelper'],
+                        'campo' => 'id_estacionamento',
+                        'msg' => $retIdEstacionamento['msg']
+                    ]]
+                ]);
+            }
+
+            $query->where('funcionario_estacionamento.id_estacionamento', $idEstacionamento);
+        }
+
+        if ($idFuncionario) {
+            $retIdFuncionario = validarDados($idFuncionario, 'int', true);
+
+            if ($retIdFuncionario['codigoHelper'] != 0) {
+                return $this->response->setJSON([
+                    'sucesso' => false,
+                    'erros' => [[
+                        'codigo' => $retIdFuncionario['codigoHelper'],
+                        'campo' => 'id_funcionario',
+                        'msg' => $retIdFuncionario['msg']
+                    ]]
+                ]);
+            }
+
+            $query->where('funcionario_estacionamento.id_funcionario', $idFuncionario);
+        }
+
+        if ($email) {
+            $retEmail = validarDadosConsulta($email, 'email');
+
+            if ($retEmail['codigoHelper'] != 0) {
+                return $this->response->setJSON([
+                    'sucesso' => false,
+                    'erros' => [[
+                        'codigo' => $retEmail['codigoHelper'],
+                        'campo' => 'email',
+                        'msg' => $retEmail['msg']
+                    ]]
+                ]);
+            }
+
+            $query->where('funcionario.email', $email);
+        }
+
+        if ($statusEstacionamento && strtoupper($statusEstacionamento) !== 'TODOS') {
+            $query->where('estacionamento.status', strtoupper($statusEstacionamento));
+        }
+
+        $dados = $query->findAll();
 
         if (!$dados) {
             return $this->response->setJSON([

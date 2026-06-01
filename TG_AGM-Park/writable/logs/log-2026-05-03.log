@@ -1,0 +1,1540 @@
+ERROR - 2026-05-03 21:56:51 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:57:39 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:00 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:01 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:03 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:05 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:06 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:07 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:11 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:12 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:14 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:15 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:16 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:18 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:19 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:20 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:22 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:23 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:24 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:26 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:28 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:30 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:40 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:42 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:44 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:46 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:48 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:49 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:50 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:51 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:53 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:54 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 21:58:56 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 22:02:00 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 22:02:15 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 22:02:17 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 22:02:20 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 22:02:22 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 22:02:26 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 22:02:28 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 22:02:29 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 22:02:31 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 22:02:33 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 22:02:47 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 22:02:55 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 22:02:58 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 22:03:02 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(192): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(615): CodeIgniter\Model->doFind(true, '1')
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Vagas.php(461): CodeIgniter\BaseModel->find('1')
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\vagas->atualizarStatusFisico('1')
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\vagas))
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-05-03 22:07:24 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'TesteAGMpark', 3306, '', 0)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `fu...', Array, false)
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(355): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(899): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(668): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Models\UsuarioModel.php(27): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Usuarios.php(243): App\Models\UsuarioModel->inserir(Array)
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\Usuarios->inserir()
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `fu...', Array, false)
+#3 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(355): CodeIgniter\Database\BaseBuilder->insert()
+#4 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\BaseModel.php(899): CodeIgniter\Model->doInsert(Array)
+#5 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Model.php(668): CodeIgniter\BaseModel->insert(Array, true)
+#6 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Models\UsuarioModel.php(27): CodeIgniter\Model->insert(Array)
+#7 C:\xampp\htdocs\AGMPark\TG_AGM-Park\app\Controllers\Usuarios.php(243): App\Models\UsuarioModel->inserir(Array)
+#8 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(951): App\Controllers\Usuarios->inserir()
+#9 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+#10 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\AGMPark\TG_AGM-Park\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\AGMPark\TG_AGM-Park\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}

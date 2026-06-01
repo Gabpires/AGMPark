@@ -278,6 +278,190 @@ class Usuarios extends BaseController
         ]);
     }
 
+    public function me()
+    {
+        helper('jwt');
+
+        $payload = get_jwt_payload();
+
+        if (!$payload || empty($payload['id'])) {
+            return $this->response->setStatusCode(401)->setJSON([
+                'sucesso' => false,
+                'erros' => [
+                    [
+                        'codigo' => 401,
+                        'msg' => 'Nao autenticado'
+                    ]
+                ]
+            ]);
+        }
+
+        $model = new UsuarioModel();
+        $usuario = $model->buscarPorId($payload['id']);
+
+        if (!$usuario) {
+            return $this->response->setStatusCode(404)->setJSON([
+                'sucesso' => false,
+                'erros' => [
+                    [
+                        'codigo' => 404,
+                        'msg' => 'Usuario nao encontrado'
+                    ]
+                ]
+            ]);
+        }
+
+        unset($usuario['senha']);
+
+        return $this->response->setJSON([
+            'sucesso' => true,
+            'dados' => $usuario
+        ]);
+    }
+
+    public function atualizarMe()
+    {
+        helper(['jwt', 'helper']);
+
+        $payload = get_jwt_payload();
+
+        if (!$payload || empty($payload['id'])) {
+            return $this->response->setStatusCode(401)->setJSON([
+                'sucesso' => false,
+                'erros' => [
+                    [
+                        'codigo' => 401,
+                        'msg' => 'Nao autenticado'
+                    ]
+                ]
+            ]);
+        }
+
+        $resultado = $this->request->getJSON();
+
+        if (!$resultado) {
+            return $this->response->setStatusCode(400)->setJSON([
+                'sucesso' => false,
+                'erros' => [
+                    [
+                        'codigo' => 400,
+                        'msg' => 'JSON invalido ou vazio'
+                    ]
+                ]
+            ]);
+        }
+
+        $erros = [];
+        $dados = [];
+
+        if (isset($resultado->nome)) {
+            $ret = validarDados($resultado->nome, 'string', true);
+
+            if ($ret['codigoHelper'] != 0) {
+                $erros[] = [
+                    'campo' => 'Nome',
+                    'msg' => $ret['msg']
+                ];
+            } else {
+                $dados['primeiro_nome'] = $resultado->nome;
+            }
+        }
+
+        if (isset($resultado->email)) {
+            $ret = validarDados($resultado->email, 'email', true);
+
+            if ($ret['codigoHelper'] != 0) {
+                $erros[] = [
+                    'campo' => 'Email',
+                    'msg' => $ret['msg']
+                ];
+            } else {
+                $dados['email'] = $resultado->email;
+            }
+        }
+
+        if (isset($resultado->telefone)) {
+            $ret = validarDados($resultado->telefone, 'string', true);
+
+            if ($ret['codigoHelper'] != 0) {
+                $erros[] = [
+                    'campo' => 'Telefone',
+                    'msg' => $ret['msg']
+                ];
+            } else {
+                $dados['telefone'] = $resultado->telefone;
+            }
+        }
+
+        if (!empty($erros)) {
+            return $this->response->setJSON([
+                'sucesso' => false,
+                'erros' => $erros
+            ]);
+        }
+
+        if (empty($dados)) {
+            return $this->response->setStatusCode(400)->setJSON([
+                'sucesso' => false,
+                'erros' => [
+                    [
+                        'codigo' => 400,
+                        'msg' => 'Nenhum dado para atualizar'
+                    ]
+                ]
+            ]);
+        }
+
+        $model = new UsuarioModel();
+        $usuario = $model->buscarPorId($payload['id']);
+
+        if (!$usuario) {
+            return $this->response->setStatusCode(404)->setJSON([
+                'sucesso' => false,
+                'erros' => [
+                    [
+                        'codigo' => 404,
+                        'msg' => 'Usuario nao encontrado'
+                    ]
+                ]
+            ]);
+        }
+
+        if (isset($usuario['status']) && $usuario['status'] === 'INATIVO') {
+            return $this->response->setStatusCode(403)->setJSON([
+                'sucesso' => false,
+                'erros' => [
+                    [
+                        'codigo' => 403,
+                        'msg' => 'Usuario INATIVO nao pode ser alterado'
+                    ]
+                ]
+            ]);
+        }
+
+        if (!$model->update($payload['id'], $dados)) {
+            return $this->response->setStatusCode(500)->setJSON([
+                'sucesso' => false,
+                'erros' => [
+                    [
+                        'codigo' => 500,
+                        'msg' => 'Erro ao atualizar usuario',
+                        'detalhes' => $model->errors()
+                    ]
+                ]
+            ]);
+        }
+
+        $usuarioAtualizado = $model->buscarPorId($payload['id']);
+        unset($usuarioAtualizado['senha']);
+
+        return $this->response->setJSON([
+            'sucesso' => true,
+            'msg' => 'Usuario atualizado com sucesso',
+            'dados' => $usuarioAtualizado
+        ]);
+    }
+
     // essa parte eu acrecentei Adriano
 
 

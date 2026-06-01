@@ -3,8 +3,10 @@
 namespace App\Controllers;
 
 use App\Models\EstadiaModel;
+use App\Models\ReservaModel;
 use App\Models\VeiculoModel;
 use App\Models\VagaModel;
+use CodeIgniter\HTTP\Exceptions\HTTPException;
 
 use Exception;
 
@@ -19,10 +21,21 @@ public function inserir()
     $sucesso = false;
 
     try {
-        $resultado = $this->request->getJSON();
+        try {
+            $resultado = $this->request->getJSON();
+        } catch (HTTPException $e) {
+            return $this->response->setStatusCode(400)->setJSON([
+                'sucesso' => false,
+                'erros' => [[
+                    'codigo' => 400,
+                    'msg' => 'JSON invalido. Remova comentarios // e envie apenas JSON puro.',
+                    'detalhes' => $e->getMessage()
+                ]]
+            ]);
+        }
 
         if (!$resultado) {
-            return $this->response->setJSON([
+            return $this->response->setStatusCode(400)->setJSON([
                 'sucesso' => false,
                 'erros' => [[
                     'codigo' => 400,
@@ -34,11 +47,21 @@ public function inserir()
         // Validações básicas
         $retIdVeiculo = validarDados($resultado->id_veiculo ?? null, 'int', true);
         $retIdVaga = validarDados($resultado->id_vaga ?? null, 'int', true);
+        $temReserva = property_exists($resultado, 'id_reserva')
+            && $resultado->id_reserva !== null
+            && $resultado->id_reserva !== '';
 
         $validacoes = [
             ['ret' => $retIdVeiculo, 'campo' => 'id_veiculo'],
             ['ret' => $retIdVaga, 'campo' => 'id_vaga']
         ];
+
+        if ($temReserva) {
+            $validacoes[] = [
+                'ret' => validarDados($resultado->id_reserva, 'int', true),
+                'campo' => 'id_reserva'
+            ];
+        }
 
         foreach ($validacoes as $v) {
             if ($v['ret']['codigoHelper'] != 0) {
@@ -51,13 +74,14 @@ public function inserir()
         }
 
         if (!empty($erros)) {
-            return $this->response->setJSON([
+            return $this->response->setStatusCode(400)->setJSON([
                 'sucesso' => false,
                 'erros' => $erros
             ]);
         }
 
         $estadiaModel = new EstadiaModel();
+        $reservaModel = new ReservaModel();
         $veiculoModel = new VeiculoModel();
         $vagaModel = new VagaModel();
 
@@ -65,7 +89,7 @@ public function inserir()
         $veiculo = $veiculoModel->find($resultado->id_veiculo);
 
         if (!$veiculo) {
-            return $this->response->setJSON([
+            return $this->response->setStatusCode(404)->setJSON([
                 'sucesso' => false,
                 'erros' => [[
                     'codigo' => 404,
@@ -75,7 +99,7 @@ public function inserir()
         }
 
         if ($veiculo['status'] !== 'ATIVO') {
-            return $this->response->setJSON([
+            return $this->response->setStatusCode(409)->setJSON([
                 'sucesso' => false,
                 'erros' => [[
                     'codigo' => 42,
@@ -88,7 +112,7 @@ public function inserir()
         $vaga = $vagaModel->find($resultado->id_vaga);
 
         if (!$vaga) {
-            return $this->response->setJSON([
+            return $this->response->setStatusCode(404)->setJSON([
                 'sucesso' => false,
                 'erros' => [[
                     'codigo' => 404,
@@ -97,8 +121,80 @@ public function inserir()
             ]);
         }
 
-        if ($vaga['status'] !== 'LIVRE') {
-            return $this->response->setJSON([
+        $reserva = null;
+
+        if ($temReserva) {
+            $reserva = $reservaModel->find($resultado->id_reserva);
+
+            if (!$reserva) {
+                return $this->response->setStatusCode(404)->setJSON([
+                    'sucesso' => false,
+                    'erros' => [[
+                        'codigo' => 404,
+                        'campo' => 'id_reserva',
+                        'msg' => 'Reserva nao encontrada'
+                    ]]
+                ]);
+            }
+
+            if ($reserva['status'] !== 'ATIVA') {
+                return $this->response->setStatusCode(409)->setJSON([
+                    'sucesso' => false,
+                    'erros' => [[
+                        'codigo' => 62,
+                        'campo' => 'id_reserva',
+                        'msg' => 'Reserva informada nao esta ativa'
+                    ]]
+                ]);
+            }
+
+            if ((int) $reserva['id_veiculo'] !== (int) $resultado->id_veiculo) {
+                return $this->response->setStatusCode(409)->setJSON([
+                    'sucesso' => false,
+                    'erros' => [[
+                        'codigo' => 63,
+                        'campo' => 'id_veiculo',
+                        'msg' => 'Reserva nao pertence ao veiculo informado'
+                    ]]
+                ]);
+            }
+
+            if (!empty($reserva['id_vaga']) && (int) $reserva['id_vaga'] !== (int) $resultado->id_vaga) {
+                return $this->response->setStatusCode(409)->setJSON([
+                    'sucesso' => false,
+                    'erros' => [[
+                        'codigo' => 64,
+                        'campo' => 'id_vaga',
+                        'msg' => 'Reserva nao pertence a vaga informada'
+                    ]]
+                ]);
+            }
+
+            if ((int) $reserva['id_estacionamento'] !== (int) $vaga['id_estacionamento']) {
+                return $this->response->setStatusCode(409)->setJSON([
+                    'sucesso' => false,
+                    'erros' => [[
+                        'codigo' => 65,
+                        'campo' => 'id_vaga',
+                        'msg' => 'Vaga nao pertence ao estacionamento da reserva'
+                    ]]
+                ]);
+            }
+
+            if (!in_array($vaga['status'], ['LIVRE', 'RESERVADA'], true)) {
+                return $this->response->setStatusCode(409)->setJSON([
+                    'sucesso' => false,
+                    'erros' => [[
+                        'codigo' => 60,
+                        'campo' => 'id_vaga',
+                        'msg' => 'Vaga nao esta disponivel para iniciar a estadia'
+                    ]]
+                ]);
+            }
+        }
+
+        if (!$temReserva && $vaga['status'] !== 'LIVRE') {
+            return $this->response->setStatusCode(409)->setJSON([
                 'sucesso' => false,
                 'erros' => [[
                     'codigo' => 60,
@@ -114,7 +210,7 @@ public function inserir()
             ->first();
 
         if ($estadiaAberta) {
-            return $this->response->setJSON([
+            return $this->response->setStatusCode(409)->setJSON([
                 'sucesso' => false,
                 'erros' => [[
                     'codigo' => 61,
@@ -127,23 +223,40 @@ public function inserir()
         $dados = [
             'id_veiculo' => $resultado->id_veiculo,
             'id_vaga' => $resultado->id_vaga,
-            'id_reserva' => $resultado->id_reserva ?? null,
+            'id_reserva' => $temReserva ? $resultado->id_reserva : null,
             'data_entrada' => date('Y-m-d H:i:s'),
             'data_saida' => null,
             'valor_total' => 0.00,
             'status' => 'EM_ANDAMENTO'
         ];
 
-        if ($estadiaModel->insert($dados)) {
+        $db = db_connect();
+        $db->transBegin();
+
+        $idEstadia = $estadiaModel->insert($dados);
+        $vagaAtualizada = false;
+        $reservaAtualizada = !$temReserva;
+
+        if ($idEstadia) {
 
             // Atualiza vaga para OCUPADA
-            $vagaModel->update($resultado->id_vaga, [
+            $vagaAtualizada = $vagaModel->update($resultado->id_vaga, [
                 'status' => 'OCUPADA'
             ]);
 
+            if ($temReserva) {
+                $reservaAtualizada = $reservaModel->update($resultado->id_reserva, [
+                    'status' => 'CONCLUIDA'
+                ]);
+            }
+        }
+
+        if ($idEstadia && $vagaAtualizada && $reservaAtualizada && $db->transStatus()) {
+            $db->transCommit();
             $sucesso = true;
 
         } else {
+            $db->transRollback();
             $erros[] = [
                 'codigo' => 500,
                 'msg' => 'Erro ao iniciar estadia',
@@ -152,7 +265,11 @@ public function inserir()
         }
 
     } catch (Exception $e) {
-        return $this->response->setJSON([
+        if (isset($db) && $db->transDepth > 0) {
+            $db->transRollback();
+        }
+
+        return $this->response->setStatusCode(500)->setJSON([
             'sucesso' => false,
             'erros' => [[
                 'codigo' => 0,
@@ -161,7 +278,7 @@ public function inserir()
         ]);
     }
 
-    return $this->response->setJSON([
+    return $this->response->setStatusCode($sucesso ? 201 : 500)->setJSON([
         'sucesso' => $sucesso,
         'msg' => $sucesso ? 'Estadia iniciada com sucesso' : null,
         'erros' => $sucesso ? [] : $erros

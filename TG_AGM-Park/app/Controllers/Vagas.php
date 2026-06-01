@@ -193,9 +193,41 @@ class vagas extends BaseController
 
     public function listar()
     {
+        helper('helper');
+
         try {
             $model = new \App\Models\VagaModel();
-            $dados = $model->findAll();
+            $erros = [];
+
+            $idEstacionamento = $this->request->getGet('id_estacionamento');
+            $status = $this->request->getGet('status');
+
+            if ($idEstacionamento !== null && $idEstacionamento !== '') {
+                $retIdEstacionamento = validarDados($idEstacionamento, 'int', true);
+
+                if ($retIdEstacionamento['codigoHelper'] != 0) {
+                    $erros[] = [
+                        'codigo' => $retIdEstacionamento['codigoHelper'],
+                        'campo' => 'id_estacionamento',
+                        'msg' => $retIdEstacionamento['msg']
+                    ];
+                } else {
+                    $model->where('id_estacionamento', $idEstacionamento);
+                }
+            }
+
+            if ($status !== null && $status !== '') {
+                $model->where('status', strtoupper($status));
+            }
+
+            if (!empty($erros)) {
+                return $this->response->setJSON([
+                    'sucesso' => false,
+                    'erros' => $erros
+                ]);
+            }
+
+            $dados = $model->orderBy('numero_vaga', 'ASC')->findAll();
 
             return $this->response->setJSON([
                 'sucesso' => true,
@@ -423,6 +455,113 @@ class vagas extends BaseController
         ]);
     }
 
+    public function alterarDisponibilidade($idEstacionamento)
+    {
+        helper('helper');
+
+        try {
+            $resultado = $this->request->getJSON();
+
+            if (!$resultado || !isset($resultado->disponivel)) {
+                return $this->response->setJSON([
+                    'sucesso' => false,
+                    'erros' => [[
+                        'codigo' => 400,
+                        'campo' => 'disponivel',
+                        'msg' => 'Informe se as vagas estao disponiveis'
+                    ]]
+                ]);
+            }
+
+            $retIdEstacionamento = validarDados($idEstacionamento, 'int', true);
+
+            if ($retIdEstacionamento['codigoHelper'] != 0) {
+                return $this->response->setJSON([
+                    'sucesso' => false,
+                    'erros' => [[
+                        'codigo' => $retIdEstacionamento['codigoHelper'],
+                        'campo' => 'id_estacionamento',
+                        'msg' => $retIdEstacionamento['msg']
+                    ]]
+                ]);
+            }
+
+            $estacionamentoModel = new \App\Models\EstacionamentoModel();
+            $estacionamento = $estacionamentoModel->find($idEstacionamento);
+
+            if (!$estacionamento) {
+                return $this->response->setJSON([
+                    'sucesso' => false,
+                    'erros' => [[
+                        'codigo' => 404,
+                        'campo' => 'id_estacionamento',
+                        'msg' => 'Estacionamento nao encontrado'
+                    ]]
+                ]);
+            }
+
+            if ($estacionamento['status'] === 'INATIVO') {
+                return $this->response->setJSON([
+                    'sucesso' => false,
+                    'erros' => [[
+                        'codigo' => 403,
+                        'campo' => 'id_estacionamento',
+                        'msg' => 'Estacionamento inativo'
+                    ]]
+                ]);
+            }
+
+            $disponivel = filter_var($resultado->disponivel, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
+
+            if ($disponivel === null) {
+                return $this->response->setJSON([
+                    'sucesso' => false,
+                    'erros' => [[
+                        'codigo' => 32,
+                        'campo' => 'disponivel',
+                        'msg' => 'Valor de disponibilidade invalido'
+                    ]]
+                ]);
+            }
+
+            $novoStatus = $disponivel ? 'LIVRE' : 'MANUTENCAO';
+            $model = new \App\Models\VagaModel();
+            $vagas = $model
+                ->where('id_estacionamento', $idEstacionamento)
+                ->orderBy('numero_vaga', 'ASC')
+                ->findAll();
+
+            foreach ($vagas as $vaga) {
+                if (in_array($vaga['status'], ['OCUPADA', 'RESERVADA'])) {
+                    continue;
+                }
+
+                $model->update($vaga['id_vaga'], [
+                    'status' => $novoStatus
+                ]);
+            }
+
+            $dados = $model
+                ->where('id_estacionamento', $idEstacionamento)
+                ->orderBy('numero_vaga', 'ASC')
+                ->findAll();
+
+            return $this->response->setJSON([
+                'sucesso' => true,
+                'msg' => 'Disponibilidade atualizada com sucesso',
+                'dados' => $dados
+            ]);
+        } catch (Exception $e) {
+            return $this->response->setJSON([
+                'sucesso' => false,
+                'erros' => [[
+                    'codigo' => 0,
+                    'msg' => 'Erro: ' . $e->getMessage()
+                ]]
+            ]);
+        }
+    }
+
     public function atualizarStatusFisico($id)
     {
         helper('helper');
@@ -485,12 +624,6 @@ class vagas extends BaseController
             ]);
         }
     }
-
-
-
-
-
-
 
     public function deletar($id)
     {

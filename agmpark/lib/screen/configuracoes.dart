@@ -1,11 +1,12 @@
-import 'package:agmpark/screen/fale_conosco.dart';
-import 'package:agmpark/screen/dados_estacionamento.dart';
-import 'package:agmpark/screen/login.dart';
-import 'package:agmpark/screen/meus_dados.dart';
 import 'package:agmpark/models/estacionamento_model.dart';
 import 'package:agmpark/services/auth_service.dart';
 import 'package:agmpark/services/estacionamento_service.dart';
 import 'package:flutter/material.dart';
+import 'package:agmpark/screen/dados_estacionamento.dart'
+    deferred as dados_estacionamento;
+import 'package:agmpark/screen/fale_conosco.dart' deferred as fale_conosco;
+import 'package:agmpark/screen/login.dart' deferred as login;
+import 'package:agmpark/screen/meus_dados.dart' deferred as meus_dados;
 
 class ConfiguracoesPage extends StatefulWidget {
   const ConfiguracoesPage({super.key});
@@ -60,6 +61,7 @@ class _ConfiguracoesPageState extends State<ConfiguracoesPage> {
 
   Future<void> sair() async {
     await ApiService.logout();
+    await login.loadLibrary();
 
     if (!mounted) {
       return;
@@ -67,15 +69,21 @@ class _ConfiguracoesPageState extends State<ConfiguracoesPage> {
 
     Navigator.pushAndRemoveUntil(
       context,
-      MaterialPageRoute(builder: (context) => const LoginPage()),
+      MaterialPageRoute(builder: (context) => login.LoginPage()),
       (route) => false,
     );
   }
 
   Future<void> abrirMeusDados() async {
+    await meus_dados.loadLibrary();
+
+    if (!mounted) {
+      return;
+    }
+
     await Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const MeusDadosPage()),
+      MaterialPageRoute(builder: (context) => meus_dados.MeusDadosPage()),
     );
 
     if (mounted) {
@@ -116,11 +124,19 @@ class _ConfiguracoesPageState extends State<ConfiguracoesPage> {
         return;
       }
 
+      await dados_estacionamento.loadLibrary();
+
+      if (!mounted) {
+        return;
+      }
+
       Navigator.push(
         context,
         MaterialPageRoute(
           builder: (_) =>
-              DadosEstacionamentoPage(estacionamento: estacionamento),
+              dados_estacionamento.DadosEstacionamentoPage(
+                estacionamento: estacionamento,
+              ),
         ),
       );
     } catch (e) {
@@ -255,12 +271,18 @@ class _ConfiguracoesPageState extends State<ConfiguracoesPage> {
                             ),
                             _OpcaoConfiguracao(
                               titulo: 'Fale Conosco',
-                              onTap: () {
+                              onTap: () async {
+                                await fale_conosco.loadLibrary();
+
+                                if (!context.mounted) {
+                                  return;
+                                }
+
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) =>
-                                        const FaleConoscoPage(),
+                                        fale_conosco.FaleConoscoPage(),
                                   ),
                                 );
                               },

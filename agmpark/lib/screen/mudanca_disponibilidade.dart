@@ -26,7 +26,7 @@ class _MudancaDisponibilidadePageState
   String? erro;
 
   String get _chaveModoAutomatico {
-    return 'agmpark_modo_automatico_${widget.idEstacionamento}';
+    return VagaService.chaveModoAutomatico(widget.idEstacionamento);
   }
 
   @override
@@ -44,7 +44,10 @@ class _MudancaDisponibilidadePageState
     try {
       final prefs = SharedPreferencesAsync();
       final modoSalvo = await prefs.getBool(_chaveModoAutomatico) ?? false;
-      final dados = await _service.listar(widget.idEstacionamento);
+      final dados = await _service.listar(
+        widget.idEstacionamento,
+        considerarStatusFisico: modoSalvo,
+      );
 
       if (!mounted) {
         return;
@@ -71,6 +74,11 @@ class _MudancaDisponibilidadePageState
   Future<void> alterarModoAutomatico(bool valor) async {
     setState(() {
       modoAutomatico = valor;
+
+      if (!valor) {
+        vagas = vagas.map((vaga) => vaga.ignorarStatusFisico()).toList();
+        vagasDisponiveis = _calcularDisponibilidade(vagas);
+      }
     });
 
     final prefs = SharedPreferencesAsync();
@@ -83,7 +91,10 @@ class _MudancaDisponibilidadePageState
 
   Future<void> carregarVagas() async {
     try {
-      final dados = await _service.listar(widget.idEstacionamento);
+      final dados = await _service.listar(
+        widget.idEstacionamento,
+        considerarStatusFisico: modoAutomatico,
+      );
 
       if (!mounted) {
         return;
@@ -117,6 +128,7 @@ class _MudancaDisponibilidadePageState
       final dados = await _service.alterarDisponibilidade(
         idEstacionamento: widget.idEstacionamento,
         disponivel: valor,
+        considerarStatusFisico: modoAutomatico,
       );
 
       if (!mounted) {

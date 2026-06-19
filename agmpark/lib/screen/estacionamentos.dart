@@ -1,12 +1,14 @@
 import 'package:agmpark/models/estacionamento_model.dart';
-import 'package:agmpark/screen/detalhe_estacionamento.dart';
 import 'package:agmpark/services/auth_service.dart';
 import 'package:agmpark/services/estacionamento_service.dart';
 import 'package:agmpark/widgets/filtro.dart';
 import 'package:flutter/material.dart';
-import 'package:agmpark/screen/cadastro_estacionamento.dart';
-import 'package:agmpark/screen/notificacoes.dart';
-import 'package:agmpark/screen/configuracoes.dart';
+import 'package:agmpark/screen/cadastro_estacionamento.dart'
+    deferred as cadastro_estacionamento;
+import 'package:agmpark/screen/configuracoes.dart' deferred as configuracoes;
+import 'package:agmpark/screen/detalhe_estacionamento.dart'
+    deferred as detalhe_estacionamento;
+import 'package:agmpark/screen/notificacoes.dart' deferred as notificacoes;
 
 class EstacionamentosPage extends StatefulWidget {
   const EstacionamentosPage({super.key});
@@ -58,6 +60,69 @@ class _EstacionamentosPageState extends State<EstacionamentosPage> {
     }
   }
 
+  Future<void> abrirConfiguracoes() async {
+    await configuracoes.loadLibrary();
+
+    if (!mounted) {
+      return;
+    }
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => configuracoes.ConfiguracoesPage()),
+    );
+  }
+
+  Future<void> abrirNotificacoes() async {
+    await notificacoes.loadLibrary();
+
+    if (!mounted) {
+      return;
+    }
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => notificacoes.NotificacoesPage()),
+    );
+  }
+
+  Future<void> abrirCadastroEstacionamento() async {
+    await cadastro_estacionamento.loadLibrary();
+
+    if (!mounted) {
+      return;
+    }
+
+    final cadastrou = await Navigator.push<bool>(
+      context,
+      MaterialPageRoute(
+        builder: (context) =>
+            cadastro_estacionamento.CadastroEstacionamentoPage(),
+      ),
+    );
+
+    if (cadastrou == true) {
+      listarEstacionamentos();
+    }
+  }
+
+  Future<void> abrirDetalhes(EstacionamentoModel estacionamento) async {
+    await detalhe_estacionamento.loadLibrary();
+
+    if (!mounted) {
+      return;
+    }
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => detalhe_estacionamento.DetalhesEstacionamentoPage(
+          estacionamento: estacionamento,
+        ),
+      ),
+    );
+  }
+
   Widget _linhaInfo({required IconData icon, required String texto}) {
     return Row(
       children: [
@@ -90,14 +155,7 @@ class _EstacionamentosPageState extends State<EstacionamentosPage> {
                 children: [
                   // Configurações
                   InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ConfiguracoesPage(),
-                        ),
-                      );
-                    },
+                    onTap: abrirConfiguracoes,
                     child: const Icon(
                       Icons.settings,
                       color: Color(0xFF21B573),
@@ -113,14 +171,7 @@ class _EstacionamentosPageState extends State<EstacionamentosPage> {
 
                   // Notificações
                   InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const NotificacoesPage(),
-                        ),
-                      );
-                    },
+                    onTap: abrirNotificacoes,
                     child: const Icon(
                       Icons.notifications,
                       color: Color(0xFF21B573),
@@ -151,19 +202,7 @@ class _EstacionamentosPageState extends State<EstacionamentosPage> {
                   if (podeAcessarProprietario)
                     InkWell(
                       borderRadius: BorderRadius.circular(8),
-                      onTap: () {
-                        Navigator.push<bool>(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                const CadastroEstacionamentoPage(),
-                          ),
-                        ).then((cadastrou) {
-                          if (cadastrou == true) {
-                            listarEstacionamentos();
-                          }
-                        });
-                      },
+                      onTap: abrirCadastroEstacionamento,
                       child: Container(
                         height: 45,
                         padding: EdgeInsets.symmetric(horizontal: 12),
@@ -297,17 +336,7 @@ class _EstacionamentosPageState extends State<EstacionamentosPage> {
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                   ),
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (_) =>
-                                            DetalhesEstacionamentoPage(
-                                              estacionamento: est,
-                                            ),
-                                      ),
-                                    );
-                                  },
+                                  onPressed: () => abrirDetalhes(est),
                                   child: const Text(
                                     'Detalhes',
                                     style: TextStyle(

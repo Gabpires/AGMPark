@@ -1,8 +1,8 @@
-import 'package:agmpark/screen/senha.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:agmpark/screen/cadastroTipo.dart';
-import 'package:agmpark/screen/privacidade.dart';
+import 'package:agmpark/screen/cadastroTipo.dart' deferred as cadastro_tipo;
+import 'package:agmpark/screen/privacidade.dart' deferred as privacidade;
+import 'package:agmpark/screen/senha.dart' deferred as senha;
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -20,7 +20,7 @@ class _LoginPageState extends State<LoginPage> {
     super.dispose();
   }
 
-  void continuarParaSenha() {
+  Future<void> continuarParaSenha() async {
     final email = emailController.text.trim();
 
     if (email.isEmpty) {
@@ -30,9 +30,15 @@ class _LoginPageState extends State<LoginPage> {
       return;
     }
 
+    await senha.loadLibrary();
+
+    if (!mounted) {
+      return;
+    }
+
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => SenhaPage(email: email)),
+      MaterialPageRoute(builder: (context) => senha.SenhaPage(email: email)),
     );
   }
 
@@ -65,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(height: 24),
 
               Image.asset(
-                'assets/images/logoagm.png',
+                'assets/images/logoagm2.png',
                 width: 120,
                 fit: BoxFit.contain,
               ),
@@ -143,12 +149,20 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(height: 18),
 
               GestureDetector(
-                onTap: () {
+                onTap: () async {
+                  await cadastro_tipo.loadLibrary();
+
+                  if (!context.mounted) {
+                    return;
+                  }
+
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) =>
-                          CadastroTipoContaPage(aceitouPolitica: true),
+                          cadastro_tipo.CadastroTipoContaPage(
+                            aceitouPolitica: true,
+                          ),
                     ),
                   );
                 },
@@ -190,10 +204,17 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () async {
+                          await privacidade.loadLibrary();
+
+                          if (!context.mounted) {
+                            return;
+                          }
+
                           final aceitou = await Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => const PoliticasPrivacidadePage(),
+                              builder: (_) =>
+                                  privacidade.PoliticasPrivacidadePage(),
                             ),
                           );
 

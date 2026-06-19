@@ -1,9 +1,10 @@
 import 'package:agmpark/models/funcionario_estacionamento_model.dart';
-import 'package:agmpark/screen/adicionar_funcionario.dart';
 import 'package:agmpark/services/auth_service.dart';
 import 'package:agmpark/services/funcionario_estacionamento_service.dart';
 import 'package:agmpark/widgets/acesso_restrito.dart';
 import 'package:flutter/material.dart';
+import 'package:agmpark/screen/adicionar_funcionario.dart'
+    deferred as adicionar_funcionario;
 
 class GerenciarFuncionariosPage extends StatefulWidget {
   final int idEstacionamento;
@@ -78,11 +79,18 @@ class _GerenciarFuncionariosPageState extends State<GerenciarFuncionariosPage> {
   }
 
   Future<void> abrirCadastro() async {
+    await adicionar_funcionario.loadLibrary();
+
+    if (!mounted) {
+      return;
+    }
+
     final cadastrou = await Navigator.push<bool>(
       context,
       MaterialPageRoute(
-        builder: (context) =>
-            AdicionarFuncionarioPage(idEstacionamento: widget.idEstacionamento),
+        builder: (context) => adicionar_funcionario.AdicionarFuncionarioPage(
+          idEstacionamento: widget.idEstacionamento,
+        ),
       ),
     );
 

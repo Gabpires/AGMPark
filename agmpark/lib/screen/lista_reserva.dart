@@ -1,4 +1,4 @@
-import 'package:agmpark/screen/detalhe_reserva.dart';
+import 'package:agmpark/screen/detalhe_reserva.dart' deferred as detalhe_reserva;
 import 'package:flutter/material.dart';
 import '../models/reserva_model.dart';
 import '../services/reserva_service.dart';
@@ -233,11 +233,17 @@ class ReservaCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                 ),
               ),
-              onPressed: () {
+              onPressed: () async {
+                await detalhe_reserva.loadLibrary();
+
+                if (!context.mounted) {
+                  return;
+                }
+
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => DetalhesReservaPage(
+                    builder: (_) => detalhe_reserva.DetalhesReservaPage(
                       reserva: reserva,
                       idEstacionamento: idEstacionamento,
                     ),

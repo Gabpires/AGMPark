@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "465635193904",
+    "project_id": "projetopiloto-1c6ee5a7",
+    "storage_bucket": "projetopiloto-1c6ee5a7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:465635193904:android:91ac9c8161c00a507b29f5",
+        "android_client_info": {
+          "package_name": "com.example.agmpark"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaVzkhYzZMypdyc8ece4eZ3mK76oNbkD4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

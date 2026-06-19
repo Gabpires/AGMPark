@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
@@ -5,12 +6,13 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class ApiService {
   static const String _apiBaseUrl =
-      'https://agm.ruzieljr.com.br/AGMPark/TG_AGM-Park/public';
+      'https://163-176-245-26.sslip.io';
   static const String _localWebProxyBaseUrl =
-      'http://127.0.0.1:53124/AGMPark/TG_AGM-Park/public';
+      'https://163-176-245-26.sslip.io';
   static const String _baseUrlOverride = String.fromEnvironment(
     'AGMPARK_API_BASE_URL',
   );
+  static const Duration _requestTimeout = Duration(seconds: 20);
 
   static String get baseUrl {
     if (_baseUrlOverride.isNotEmpty) {
@@ -30,7 +32,7 @@ class ApiService {
     required String email,
     required String senha,
   }) async {
-    final response = await http.post(
+    final response = await _post(
       Uri.parse('$baseUrl/auth/login'),
       headers: const {
         'Accept': 'application/json',
@@ -58,7 +60,7 @@ class ApiService {
     required String senha,
     required String tipo,
   }) async {
-    final response = await http.post(
+    final response = await _post(
       Uri.parse('$baseUrl/usuarios/inserir'),
       headers: const {
         'Accept': 'application/json',
@@ -85,7 +87,7 @@ class ApiService {
   }
 
   static Future<Map<String, dynamic>> usuarioLogado() async {
-    final response = await http.get(
+    final response = await _get(
       Uri.parse('$baseUrl/usuarios/me'),
       headers: await authHeaders(),
     );
@@ -108,7 +110,7 @@ class ApiService {
     required String email,
     required String telefone,
   }) async {
-    final response = await http.put(
+    final response = await _put(
       Uri.parse('$baseUrl/usuarios/me'),
       headers: await authHeaders(contentType: true),
       body: jsonEncode({'nome': nome, 'email': email, 'telefone': telefone}),
@@ -192,7 +194,7 @@ class ApiService {
     }
 
     try {
-      final response = await http.get(
+      final response = await _get(
         Uri.parse('$baseUrl/auth/checkauth'),
         headers: await authHeaders(),
       );
@@ -235,6 +237,67 @@ class ApiService {
   static Future<bool> possuiAcessoProprietario() async {
     final tipo = await tipoUsuario();
     return tipo == 'PROPRIETARIO' || tipo == 'ADMINISTRADOR';
+  }
+
+  static Future<http.Response> _get(
+    Uri uri, {
+    Map<String, String>? headers,
+  }) async {
+    try {
+      return await http.get(uri, headers: headers).timeout(_requestTimeout);
+    } on TimeoutException catch (_) {
+      throw Exception(_mensagemErroConexao());
+    } on http.ClientException catch (e) {
+      throw Exception(_mensagemErroConexao(e));
+    }
+  }
+
+  static Future<http.Response> _post(
+    Uri uri, {
+    Map<String, String>? headers,
+    Object? body,
+  }) async {
+    try {
+      return await http
+          .post(uri, headers: headers, body: body)
+          .timeout(_requestTimeout);
+    } on TimeoutException catch (_) {
+      throw Exception(_mensagemErroConexao());
+    } on http.ClientException catch (e) {
+      throw Exception(_mensagemErroConexao(e));
+    }
+  }
+
+  static Future<http.Response> _put(
+    Uri uri, {
+    Map<String, String>? headers,
+    Object? body,
+  }) async {
+    try {
+      return await http
+          .put(uri, headers: headers, body: body)
+          .timeout(_requestTimeout);
+    } on TimeoutException catch (_) {
+      throw Exception(_mensagemErroConexao());
+    } on http.ClientException catch (e) {
+      throw Exception(_mensagemErroConexao(e));
+    }
+  }
+
+  static String _mensagemErroConexao([Object? error]) {
+    final detalhe = error?.toString() ?? '';
+
+    if (error != null ||
+        detalhe.contains('Failed host lookup') ||
+        detalhe.contains('SocketException') ||
+        detalhe.contains('SocketFailed') ||
+        detalhe.contains('Connection refused') ||
+        detalhe.contains('XMLHttpRequest error') ||
+        detalhe.contains('Failed to fetch')) {
+      return 'NÃ£o foi possÃ­vel conectar Ã API. Verifique sua conexÃ£o com a internet e tente novamente.';
+    }
+
+    return 'A API demorou para responder. Tente novamente em instantes.';
   }
 
   static Map<String, dynamic> _decodeResponse(String body) {

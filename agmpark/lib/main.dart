@@ -1,9 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:agmpark/screen/inicio.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: AgmPark()));
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  runApp(const AgmPark());
+}
+
+class AgmPark extends StatelessWidget {
+  const AgmPark({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'AGM Park',
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
+    );
+  }
 }

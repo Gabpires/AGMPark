@@ -1,7 +1,8 @@
-import 'package:agmpark/screen/estacionamentos.dart';
-import 'package:agmpark/screen/recuperar%20senha/esqueci_senha.dart';
 import 'package:agmpark/services/auth_service.dart';
 import 'package:flutter/material.dart';
+import 'package:agmpark/screen/estacionamentos.dart' deferred as estacionamentos;
+import 'package:agmpark/screen/recuperar%20senha/esqueci_senha.dart'
+    deferred as esqueci_senha;
 
 class SenhaPage extends StatefulWidget {
   final String email;
@@ -39,6 +40,7 @@ class _SenhaPageState extends State<SenhaPage> {
 
     try {
       await ApiService.login(email: widget.email, senha: senha);
+      await estacionamentos.loadLibrary();
 
       if (!mounted) {
         return;
@@ -46,7 +48,9 @@ class _SenhaPageState extends State<SenhaPage> {
 
       Navigator.pushAndRemoveUntil(
         context,
-        MaterialPageRoute(builder: (context) => const EstacionamentosPage()),
+        MaterialPageRoute(
+          builder: (context) => estacionamentos.EstacionamentosPage(),
+        ),
         (route) => false,
       );
     } catch (e) {
@@ -95,7 +99,7 @@ class _SenhaPageState extends State<SenhaPage> {
           padding: const EdgeInsets.fromLTRB(28, 40, 28, 24),
           child: Column(
             children: [
-              Image.asset('assets/images/logoagm.png', height: 200),
+              Image.asset('assets/images/logoagm2.png', height: 200),
 
               const SizedBox(height: 34),
 
@@ -199,11 +203,18 @@ class _SenhaPageState extends State<SenhaPage> {
               GestureDetector(
                 onTap: carregando
                     ? null
-                    : () {
+                    : () async {
+                        await esqueci_senha.loadLibrary();
+
+                        if (!context.mounted) {
+                          return;
+                        }
+
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => EsqueciSenhaEmailPage(),
+                            builder: (context) =>
+                                esqueci_senha.EsqueciSenhaEmailPage(),
                           ),
                         );
                       },

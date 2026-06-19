@@ -1,12 +1,16 @@
-import 'package:agmpark/screen/lista_reserva.dart';
-import 'package:agmpark/screen/lista_carros_estacionados.dart';
-import 'package:agmpark/screen/dados_estacionamento.dart';
-import 'package:agmpark/screen/gerenciar_funcionarios.dart';
-import 'package:agmpark/screen/lista_vagas.dart';
-import 'package:agmpark/screen/mudanca_disponibilidade.dart';
 import 'package:agmpark/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import '../models/estacionamento_model.dart';
+import 'package:agmpark/screen/dados_estacionamento.dart'
+    deferred as dados_estacionamento;
+import 'package:agmpark/screen/gerenciar_funcionarios.dart'
+    deferred as gerenciar_funcionarios;
+import 'package:agmpark/screen/lista_carros_estacionados.dart'
+    deferred as lista_carros_estacionados;
+import 'package:agmpark/screen/lista_reserva.dart' deferred as lista_reserva;
+import 'package:agmpark/screen/lista_vagas.dart' deferred as lista_vagas;
+import 'package:agmpark/screen/mudanca_disponibilidade.dart'
+    deferred as mudanca_disponibilidade;
 
 class DetalhesEstacionamentoPage extends StatefulWidget {
   final EstacionamentoModel estacionamento;
@@ -40,6 +44,108 @@ class _DetalhesEstacionamentoPageState
     setState(() {
       podeAcessarProprietario = podeAcessar;
     });
+  }
+
+  Future<void> abrirReservas() async {
+    await lista_reserva.loadLibrary();
+
+    if (!mounted) {
+      return;
+    }
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => lista_reserva.ListaReservasPage(
+          idEstacionamento: estacionamento.id!,
+        ),
+      ),
+    );
+  }
+
+  Future<void> abrirCarrosEstacionados() async {
+    await lista_carros_estacionados.loadLibrary();
+
+    if (!mounted) {
+      return;
+    }
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => lista_carros_estacionados.ListaCarrosEstacionadosPage(
+          idEstacionamento: estacionamento.id ?? 0,
+        ),
+      ),
+    );
+  }
+
+  Future<void> abrirVagas() async {
+    await lista_vagas.loadLibrary();
+
+    if (!mounted) {
+      return;
+    }
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => lista_vagas.ListaVagasPage(
+          idEstacionamento: estacionamento.id ?? 0,
+        ),
+      ),
+    );
+  }
+
+  Future<void> abrirDadosEstacionamento() async {
+    await dados_estacionamento.loadLibrary();
+
+    if (!mounted) {
+      return;
+    }
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => dados_estacionamento.DadosEstacionamentoPage(
+          estacionamento: estacionamento,
+        ),
+      ),
+    );
+  }
+
+  Future<void> abrirMudancaDisponibilidade() async {
+    await mudanca_disponibilidade.loadLibrary();
+
+    if (!mounted) {
+      return;
+    }
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => mudanca_disponibilidade.MudancaDisponibilidadePage(
+          idEstacionamento: estacionamento.id ?? 0,
+        ),
+      ),
+    );
+  }
+
+  Future<void> abrirGerenciarFuncionarios() async {
+    await gerenciar_funcionarios.loadLibrary();
+
+    if (!mounted) {
+      return;
+    }
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => gerenciar_funcionarios.GerenciarFuncionariosPage(
+          idEstacionamento: estacionamento.id ?? 0,
+        ),
+      ),
+    );
   }
 
   @override
@@ -126,87 +232,33 @@ class _DetalhesEstacionamentoPageState
                 BotaoAcaoDetalhe(
                   texto: 'Lista de\nReservas',
                   icon: Icons.send,
-                  onTap: () => {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => ListaReservasPage(
-                          idEstacionamento: estacionamento.id!,
-                        ),
-                      ),
-                    ),
-                  },
+                  onTap: abrirReservas,
                 ),
                 BotaoAcaoDetalhe(
                   texto: 'Lista de Carros\nEstacionados',
                   icon: Icons.local_parking,
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => ListaCarrosEstacionadosPage(
-                          idEstacionamento: estacionamento.id ?? 0,
-                        ),
-                      ),
-                    );
-                  },
+                  onTap: abrirCarrosEstacionados,
                 ),
                 BotaoAcaoDetalhe(
                   texto: 'Visualização\ndas vagas',
                   icon: Icons.grid_view,
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => ListaVagasPage(
-                          idEstacionamento: estacionamento.id ?? 0,
-                        ),
-                      ),
-                    );
-                  },
+                  onTap: abrirVagas,
                 ),
                 BotaoAcaoDetalhe(
                   texto: 'Dados do\nEstacionamento',
                   icon: Icons.analytics_outlined,
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => DadosEstacionamentoPage(
-                          estacionamento: estacionamento,
-                        ),
-                      ),
-                    );
-                  },
+                  onTap: abrirDadosEstacionamento,
                 ),
                 BotaoAcaoDetalhe(
                   texto: 'Mudança de\nDisponibilidade',
                   icon: Icons.toggle_on,
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => MudancaDisponibilidadePage(
-                          idEstacionamento: estacionamento.id ?? 0,
-                        ),
-                      ),
-                    );
-                  },
+                  onTap: abrirMudancaDisponibilidade,
                 ),
                 if (podeAcessarProprietario)
                   BotaoAcaoDetalhe(
                     texto: 'Gerenciar\nFuncionários',
                     icon: Icons.person,
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => GerenciarFuncionariosPage(
-                            idEstacionamento: estacionamento.id ?? 0,
-                          ),
-                        ),
-                      );
-                    },
+                    onTap: abrirGerenciarFuncionarios,
                   ),
               ],
             ),

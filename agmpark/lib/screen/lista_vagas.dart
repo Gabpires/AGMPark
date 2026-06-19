@@ -23,7 +23,7 @@ class _ListaVagasPageState extends State<ListaVagasPage> {
   String? erro;
 
   String get _chaveModoAutomatico {
-    return 'agmpark_modo_automatico_${widget.idEstacionamento}';
+    return VagaService.chaveModoAutomatico(widget.idEstacionamento);
   }
 
   @override
@@ -41,7 +41,10 @@ class _ListaVagasPageState extends State<ListaVagasPage> {
     try {
       final prefs = SharedPreferencesAsync();
       final modoSalvo = await prefs.getBool(_chaveModoAutomatico) ?? false;
-      final dados = await _service.listar(widget.idEstacionamento);
+      final dados = await _service.listar(
+        widget.idEstacionamento,
+        considerarStatusFisico: modoSalvo,
+      );
 
       if (!mounted) {
         return;
@@ -143,7 +146,10 @@ class _ListaVagasPageState extends State<ListaVagasPage> {
 
     try {
       await _service.atualizarStatus(vaga, status);
-      final dados = await _service.listar(widget.idEstacionamento);
+      final dados = await _service.listar(
+        widget.idEstacionamento,
+        considerarStatusFisico: modoAutomatico,
+      );
 
       if (!mounted) {
         return;

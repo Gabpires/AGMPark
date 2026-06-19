@@ -3,7 +3,7 @@ import 'package:intl/intl.dart';
 
 import '../models/carro_estacionado_model.dart';
 import '../services/carro_estacionado_service.dart';
-import 'detalhes_estadia.dart';
+import 'detalhes_estadia.dart' deferred as detalhes_estadia;
 
 class ListaCarrosEstacionadosPage extends StatefulWidget {
   final int idEstacionamento;
@@ -314,10 +314,16 @@ class CarroEstacionadoCard extends StatelessWidget {
   }
 
   Future<void> _abrirDetalhes(BuildContext context) async {
+    await detalhes_estadia.loadLibrary();
+
+    if (!context.mounted) {
+      return;
+    }
+
     final vagaLiberada = await Navigator.push<bool>(
       context,
       MaterialPageRoute(
-        builder: (_) => DetalhesEstadiaPage(
+        builder: (_) => detalhes_estadia.DetalhesEstadiaPage(
           carro: carro,
           idEstacionamento: idEstacionamento,
         ),

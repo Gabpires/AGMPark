@@ -1,5 +1,5 @@
-import 'package:agmpark/screen/cadastro.dart';
 import 'package:flutter/material.dart';
+import 'package:agmpark/screen/cadastro.dart' deferred as cadastro;
 
 class CadastroTipoContaPage extends StatefulWidget {
   final bool aceitouPolitica;
@@ -118,7 +118,7 @@ class _CadastroTipoContaPageState extends State<CadastroTipoContaPage> {
               width: double.infinity,
               height: 50,
               child: ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   // ação do botão continuar
                   if (tipoConta == null) {
                     ScaffoldMessenger.of(context).showSnackBar(
@@ -143,10 +143,17 @@ class _CadastroTipoContaPageState extends State<CadastroTipoContaPage> {
                     return;
                   }
 
+                  await cadastro.loadLibrary();
+
+                  if (!context.mounted) {
+                    return;
+                  }
+
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => CadastroFormPage(tipo: tipoConta!),
+                      builder: (context) =>
+                          cadastro.CadastroFormPage(tipo: tipoConta!),
                     ),
                   );
                 },

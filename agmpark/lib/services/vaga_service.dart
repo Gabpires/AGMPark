@@ -1,14 +1,24 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/vaga_model.dart';
 import 'auth_service.dart';
 
 class VagaService {
   static String get baseUrl => ApiService.baseUrl;
+  static String chaveModoAutomatico(int idEstacionamento) {
+    return 'agmpark_modo_automatico_$idEstacionamento';
+  }
 
-  Future<List<VagaModel>> listar(int idEstacionamento) async {
+  Future<List<VagaModel>> listar(
+    int idEstacionamento, {
+    bool? considerarStatusFisico,
+  }) async {
+    final usarStatusFisico =
+        considerarStatusFisico ?? await _modoAutomaticoAtivo(idEstacionamento);
+
     final uri = Uri.parse('$baseUrl/vagas/listar').replace(
       queryParameters: {'id_estacionamento': idEstacionamento.toString()},
     );
@@ -24,7 +34,12 @@ class VagaService {
 
       if (dados is List) {
         return dados
-            .map((item) => VagaModel.fromJson(Map<String, dynamic>.from(item)))
+            .map(
+              (item) => VagaModel.fromJson(
+                Map<String, dynamic>.from(item),
+                considerarStatusFisico: usarStatusFisico,
+              ),
+            )
             .toList();
       }
 
@@ -37,7 +52,11 @@ class VagaService {
   Future<List<VagaModel>> alterarDisponibilidade({
     required int idEstacionamento,
     required bool disponivel,
+    bool? considerarStatusFisico,
   }) async {
+    final usarStatusFisico =
+        considerarStatusFisico ?? await _modoAutomaticoAtivo(idEstacionamento);
+
     final response = await http.put(
       Uri.parse('$baseUrl/vagas/disponibilidade/$idEstacionamento'),
       headers: await ApiService.authHeaders(contentType: true),
@@ -51,11 +70,16 @@ class VagaService {
 
       if (dados is List) {
         return dados
-            .map((item) => VagaModel.fromJson(Map<String, dynamic>.from(item)))
+            .map(
+              (item) => VagaModel.fromJson(
+                Map<String, dynamic>.from(item),
+                considerarStatusFisico: usarStatusFisico,
+              ),
+            )
             .toList();
       }
 
-      return listar(idEstacionamento);
+      return listar(idEstacionamento, considerarStatusFisico: usarStatusFisico);
     }
 
     throw Exception(_mensagemErro(decoded, 'Erro ao alterar disponibilidade'));
@@ -121,5 +145,10 @@ class VagaService {
     }
 
     return fallback;
+  }
+
+  Future<bool> _modoAutomaticoAtivo(int idEstacionamento) async {
+    final prefs = SharedPreferencesAsync();
+    return await prefs.getBool(chaveModoAutomatico(idEstacionamento)) ?? false;
   }
 }

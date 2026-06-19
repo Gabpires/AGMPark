@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import '../models/reserva_model.dart';
 import '../models/vaga_model.dart';
 import '../services/vaga_service.dart';
-import 'lista_carros_estacionados.dart';
+import 'lista_carros_estacionados.dart' deferred as lista_carros_estacionados;
 
 class DetalhesReservaPage extends StatefulWidget {
   final ReservaModel reserva;
@@ -68,7 +68,7 @@ class _DetalhesReservaPageState extends State<DetalhesReservaPage> {
         confirmandoEstadia = false;
       });
 
-      abrirListaCarrosEstacionados();
+      await abrirListaCarrosEstacionados();
     } catch (e) {
       if (!mounted) {
         return;
@@ -122,11 +122,17 @@ class _DetalhesReservaPageState extends State<DetalhesReservaPage> {
     return int.tryParse(match?.group(0) ?? '');
   }
 
-  void abrirListaCarrosEstacionados() {
+  Future<void> abrirListaCarrosEstacionados() async {
+    await lista_carros_estacionados.loadLibrary();
+
+    if (!mounted) {
+      return;
+    }
+
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (_) => ListaCarrosEstacionadosPage(
+        builder: (_) => lista_carros_estacionados.ListaCarrosEstacionadosPage(
           idEstacionamento: widget.idEstacionamento,
         ),
       ),

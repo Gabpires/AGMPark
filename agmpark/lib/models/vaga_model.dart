@@ -13,13 +13,32 @@ class VagaModel {
     required this.statusFisico,
   });
 
-  factory VagaModel.fromJson(Map<String, dynamic> json) {
+  factory VagaModel.fromJson(
+    Map<String, dynamic> json, {
+    bool considerarStatusFisico = true,
+  }) {
     return VagaModel(
       id: _intValue(json['id_vaga']),
       idEstacionamento: _intValue(json['id_estacionamento']),
       numeroVaga: _intValue(json['numero_vaga']),
       status: _stringValue(json['status']).toUpperCase(),
-      statusFisico: _stringValue(json['status_fisico']).toUpperCase(),
+      statusFisico: considerarStatusFisico
+          ? _stringValue(json['status_fisico']).toUpperCase()
+          : '',
+    );
+  }
+
+  VagaModel ignorarStatusFisico() {
+    if (statusFisico.isEmpty) {
+      return this;
+    }
+
+    return VagaModel(
+      id: id,
+      idEstacionamento: idEstacionamento,
+      numeroVaga: numeroVaga,
+      status: status,
+      statusFisico: '',
     );
   }
 
